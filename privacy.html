@@ -13,7 +13,7 @@
     color: #1b2430;
     line-height: 1.65;
   }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 28px 20px 60px; }
   .card {
     background: #fff;
     border-radius: 14px;
@@ -33,17 +33,29 @@
     padding-left: 10px;
     margin: 26px 0 8px;
   }
+  h3 { font-size: 15px; margin: 18px 0 4px; color: #0e1728; }
   [dir="rtl"] h2 { border-left: none; border-right: 5px solid #e67e22; padding-left: 0; padding-right: 10px; }
   ul { margin: 6px 0 12px; padding-left: 24px; }
   [dir="rtl"] ul { padding-left: 0; padding-right: 24px; }
   li { margin-bottom: 5px; }
   a { color: #e67e22; font-weight: 600; }
-  .lang-nav { display: flex; gap: 10px; margin-top: 14px; }
+  .lang-nav { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
   .lang-nav a {
     background: #0e1728; color: #fff; text-decoration: none;
     padding: 7px 16px; border-radius: 999px; font-size: 14px;
   }
   .footer { text-align: center; color: #6b7684; font-size: 12px; }
+  .tablewrap { overflow-x: auto; margin: 10px 0 14px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 520px; }
+  th { background: #0e1728; color: #fff; text-align: left; padding: 8px 10px; font-size: 12.5px; }
+  [dir="rtl"] th { text-align: right; }
+  td { border-bottom: 1px solid #e5e7eb; padding: 8px 10px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f8f9fc; }
+  .note {
+    background: #fdf3e7; border: 1px solid #e67e22; border-radius: 10px;
+    padding: 12px 16px; margin: 14px 0; font-size: 14.5px;
+  }
+  .note b { color: #b35b0e; }
 </style>
 </head>
 <body>
@@ -52,110 +64,315 @@
   <div class="card">
     <div class="brand">TACTI<span class="x">X</span></div>
     <div class="doc-title">Privacy Policy · سياسة الخصوصية</div>
-    <div class="meta">Effective date: 8 August 2026 · App: Tactix · Developer: Mohamed Amine Aouichi · Contact: support@tactix-app.com</div>
-    <div class="lang-nav"><a href="#en">English</a><a href="#ar">العربية</a></div>
+    <div class="meta">Effective date: 9 August 2026 · App: Tactix · Developer: Mohamed Amine Aouichi, Kuwait · Contact: support@tactix-app.com</div>
+    <div class="lang-nav"><a href="#en">English</a><a href="#ar">العربية</a><a href="dpa.html">Data Processing Terms</a></div>
   </div>
 
   <div class="card" id="en">
-    <h2>1. Who we are</h2>
-    <p>Tactix is a team-management app for sports coaches, developed by Mohamed Amine Aouichi. It helps coaches manage
-    rosters, attendance, training, evaluations and printable documents. This policy explains what data the app
-    handles and how it is protected.</p>
+    <h2>1. Who we are, and who is responsible for what</h2>
+    <p>Tactix is a team-management app for sports coaches, developed by Mohamed Amine Aouichi (Kuwait). It helps
+    coaches manage rosters, attendance, training, evaluations and printable documents. This policy explains what
+    data the app handles and how it is protected.</p>
+    <p>Two different kinds of data pass through Tactix, and our role differs for each:</p>
+    <ul>
+      <li><b>Your coach account</b> — your email address, coach name and subscription status. For this we are the
+      <b>data controller</b>: we decide why and how it is used.</li>
+      <li><b>The player and team information you enter</b> — for this we are only a <b>data processor</b>. You,
+      the coach (or the club or academy you work for), are the <b>data controller</b>. You decide what to record
+      and why; we simply store it and show it back to you, acting on your instructions. Our obligations in that
+      role are set out in the <a href="dpa.html">Data Processing Terms</a>.</li>
+    </ul>
 
     <h2>2. Data the app stores</h2>
     <ul>
-      <li><b>Account data:</b> your email address and password (managed by Firebase Authentication) — or, if you choose “Continue with Google”, the email address and basic profile (name, picture) of your Google account. Plus your coach name and your license/subscription status.</li>
-      <li><b>Team data entered by you (the coach):</b> team names, player names (English/Arabic), jersey numbers, positions, dates of birth, residential zone, player and parent phone numbers, player photos, attendance records, physical measurements, skill evaluations and notes.</li>
-      <li><b>App settings:</b> language, theme and similar preferences.</li>
+      <li><b>Account data:</b> your email address and password (managed by Firebase Authentication) — or, if you
+      choose “Continue with Google”, the email address and basic profile (name, picture) of your Google account.
+      Plus your coach name and your licence/subscription status.</li>
+      <li><b>Team data entered by you (the coach):</b> team names, player names, jersey numbers, positions, dates
+      of birth, residential zone, player and parent phone numbers, player photos, attendance records, physical
+      measurements (height and weight), skill evaluations and free-text notes.</li>
+      <li><b>App settings:</b> language, theme and similar preferences, stored on your device.</li>
     </ul>
-    <p>Tactix contains <b>no advertising and no analytics or tracking tools</b>. We collect nothing beyond what you type into the app.</p>
+    <p>Tactix contains <b>no advertising, no analytics and no tracking tools of any kind</b>. There are no
+    third-party SDKs collecting behaviour, no advertising identifiers, and no profiling. We collect nothing
+    beyond what you type into the app and what is needed to sign you in.</p>
 
-    <h2>3. How the data is used</h2>
-    <p>Your data is used only to provide the app's features: showing your rosters, recording attendance,
-    generating PDF documents, backing up your data to the cloud so you can restore it on another device,
-    and sending you account emails (a welcome message and a deletion confirmation).
-    It is never used for advertising and is <b>never sold</b>. It is shared only with the service
-    providers that run the app — Google Firebase (sign-in and database) and Resend (delivery of account
-    emails, which processes only your email address) — and they act solely on our instructions.</p>
+    <h2>3. Why we use it, and our legal basis</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Purpose</th><th>Data</th><th>Legal basis (UK/EU GDPR)</th></tr></thead>
+      <tbody>
+        <tr><td>Creating and running your account; signing you in</td><td>Account data</td><td>Performance of a contract — Art. 6(1)(b)</td></tr>
+        <tr><td>Storing and syncing your team data so you can use it across devices</td><td>Team data</td><td>Performance of a contract with you. For the players' own data we act on your instructions as processor — the lawful basis for recording it is yours (see section 6)</td></tr>
+        <tr><td>Sending account emails (welcome, deletion confirmation)</td><td>Email address</td><td>Legitimate interests — Art. 6(1)(f): confirming account actions</td></tr>
+        <tr><td>Checking whether your subscription or activation code is valid</td><td>Account data</td><td>Performance of a contract — Art. 6(1)(b)</td></tr>
+        <tr><td>Keeping the service secure and preventing abuse</td><td>Account data, request logs</td><td>Legitimate interests — Art. 6(1)(f)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Your data is <b>never sold</b>, never used for advertising, and never used to train machine-learning
+    models.</p>
 
-    <h2>4. Where the data is stored</h2>
+    <h2>4. Where the data is stored, and international transfers</h2>
     <ul>
-      <li><b>On your device</b> — the app works offline and keeps its data locally.</li>
-      <li><b>In the cloud</b> — when you are signed in, your data is backed up to Google Firebase servers, linked to your account and protected by access rules so only you can read it. Data travels over encrypted (HTTPS) connections.</li>
+      <li><b>On your device</b> — the app works fully offline and keeps its data locally.</li>
+      <li><b>In the cloud</b> — when you are signed in, your data is backed up to Google Cloud, linked to your
+      account and protected by access rules so that only you can read it. All transfers use encrypted (HTTPS/TLS)
+      connections, and data is encrypted at rest by Google.</li>
     </ul>
+    <p>We are based in Kuwait and use the following processors. Because of this, personal data of users in the
+    European Economic Area or the United Kingdom is transferred outside those areas:</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Provider</th><th>What it does</th><th>Data it receives</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Google Firebase Authentication</td><td>Sign-in and password management</td><td>Email address, password hash, Google profile basics</td><td>Google infrastructure, including the United States</td></tr>
+        <tr><td>Google Cloud Firestore</td><td>Cloud backup of your app data</td><td>Everything you enter in the app</td><td><b>Doha, Qatar</b> (region me-central1)</td></tr>
+        <tr><td>Google Cloud Functions</td><td>Triggers the account emails</td><td>Your email address only</td><td><b>Iowa, United States</b> (region us-central1)</td></tr>
+        <tr><td>Resend</td><td>Delivers the account emails</td><td>Your email address only</td><td>United States</td></tr>
+        <tr><td>Google Play Billing</td><td>Processes subscription payments</td><td>Handled entirely by Google; we receive only whether a subscription is active</td><td>Google infrastructure</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Neither Kuwait nor Qatar is covered by a European Commission adequacy decision. Transfers to those
+    locations, and to the United States, are therefore made under the European Commission's
+    <b>Standard Contractual Clauses</b> (and the UK Addendum for United Kingdom users), together with the
+    technical measures described in section 9. You may request a copy of the relevant clauses by writing to
+    <a href="mailto:support@tactix-app.com">support@tactix-app.com</a>.</p>
 
-    <h2>5. Players and children</h2>
-    <p>Tactix is intended for adult coaches; it is not directed at children. Coaches may record information about
-    players who are minors. As the coach, you are responsible for having the consent of the player's parent or
-    guardian before entering their information into the app.</p>
+    <h2>5. Who we share data with</h2>
+    <p>Only the providers listed in the table above, each acting solely on our instructions under a written
+    contract. We do not share your data with anyone else. We will disclose data if we are legally required to,
+    and if that ever happens we will tell you unless the law forbids it.</p>
 
-    <h2>6. Data retention and deletion</h2>
+    <h2>6. Players, children and your responsibilities as a coach</h2>
+    <p>Tactix is designed for and sold to <b>adult coaches</b>. It is not directed at children, it is not listed
+    in Google Play's Families programme, and children do not have accounts, cannot sign in, and are never
+    contacted by us.</p>
+    <p>Coaches do, however, record information about players who are usually minors. When you do that, <b>you or
+    your club are the data controller</b> and you are responsible for the lawfulness of that recording. In
+    particular:</p>
     <ul>
-      <li>You can edit or delete any player, team or record inside the app at any time. Deletions are reflected in the cloud backup on the next sync.</li>
-      <li>You can delete your entire account and cloud data — see <a href="delete-account.html">Delete your account</a>. Requests are completed within 30 days.</li>
+      <li>You must have a valid legal basis for recording each player's data — in practice, the
+      <b>verifiable consent of a parent or legal guardian</b>, or the documented legitimate interests of your club.</li>
+      <li>In the EU, the age at which a child can consent for themselves is set nationally between 13 and 16; below
+      that age, parental consent is required. In the United States, the Children's Online Privacy Protection Act
+      (COPPA) requires verifiable parental consent before collecting personal information from a child under 13.</li>
+      <li>You must tell parents and players what you are recording and why, and let them see, correct or withdraw it.</li>
+      <li>You should only record what you actually need. The app does not require photos, phone numbers, home zone
+      or notes — leave them empty where they are not necessary.</li>
+    </ul>
+    <p>We support you in this: every field is optional except the player's name, all data can be edited or deleted
+    from inside the app at any time, and a full export is available at any moment.</p>
+    <p>If you are a parent or guardian and believe a coach has recorded your child's information without a proper
+    basis, contact the coach or club first, since they control that data. You may also write to us at
+    <a href="mailto:support@tactix-app.com">support@tactix-app.com</a> and we will help identify the account
+    holder and, where appropriate, act to have the data removed.</p>
+
+    <h2>7. How long we keep data</h2>
+    <ul>
+      <li><b>Team and player data</b> — kept for as long as your account exists, because it is your working
+      record. You can delete any part of it at any time; deletions reach the cloud copy on the next sync.</li>
+      <li><b>Account data</b> — kept while your account is active.</li>
+      <li><b>After account deletion</b> — your cloud data and sign-in record are erased immediately, and any
+      residual copies in system snapshots are purged within <b>30 days</b>.</li>
+      <li><b>Email delivery logs</b> — held by our email provider for a short operational period and then deleted;
+      they contain only the address and the delivery result.</li>
     </ul>
 
-    <h2>7. Payments</h2>
-    <p>Tactix Premium subscriptions are purchased through Google Play, and activation codes are issued
-    directly by us. Payments are processed entirely by Google — <b>we never see or store your card or
-    payment details</b>.</p>
+    <h2>8. Your rights</h2>
+    <h3>If you are in the EU, EEA, UK or Switzerland</h3>
+    <p>You have the right to access your data, to correct it, to have it erased, to restrict or object to its
+    processing, to receive it in a portable format, and to withdraw consent where consent is the basis. Most of
+    these you can exercise yourself, immediately, inside the app: <i>Settings → Save backup</i> gives you a
+    complete machine-readable export, and <i>Settings → Delete account</i> erases everything.</p>
+    <p>For anything else, write to <a href="mailto:support@tactix-app.com">support@tactix-app.com</a>. We will
+    respond within <b>one month</b>. You also have the right to lodge a complaint with your national data
+    protection authority.</p>
+    <h3>If you are in the United States</h3>
+    <p>Depending on your state, you may have the right to know what personal information we hold, to obtain a
+    copy, to correct it, to delete it, and to be free from discrimination for exercising those rights. The same
+    in-app export and deletion tools satisfy these requests immediately.</p>
+    <p>We want to be unambiguous about the point these laws care about most: <b>we do not sell your personal
+    information, and we do not share it for cross-context behavioural advertising.</b> We never have. Tactix
+    contains no advertising and no tracking, so there is nothing to opt out of.</p>
 
-    <h2>8. Changes to this policy</h2>
-    <p>If this policy changes, the updated version will be published at this address with a new effective date.</p>
+    <h2>9. Security</h2>
+    <ul>
+      <li>All traffic between the app and our servers is encrypted with TLS; stored data is encrypted at rest.</li>
+      <li>Database rules enforce that a signed-in coach can read and write only their own data — this is enforced
+      on the server, not merely in the app.</li>
+      <li>Passwords are never stored by us in readable form; authentication is handled by Google Firebase.</li>
+      <li>Access to production systems is limited to the developer and protected by two-factor authentication.</li>
+    </ul>
+    <p>If a personal data breach ever occurs, we will notify the competent supervisory authority within
+    <b>72 hours</b> of becoming aware of it where the law requires, and we will inform affected users and
+    controllers without undue delay.</p>
 
-    <h2>9. Contact</h2>
-    <p>For any question about your data, contact: <a href="mailto:support@tactix-app.com">support@tactix-app.com</a></p>
+    <h2>10. Payments</h2>
+    <p>Tactix Premium subscriptions are purchased through Google Play; activation codes are issued directly by us.
+    Payments are processed entirely by Google — <b>we never see or store your card or payment details</b>.</p>
+
+    <h2>11. Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be published at this address with a new effective date.
+    If a change materially affects your rights, we will also tell you in the app or by email.</p>
+
+    <h2>12. Contact</h2>
+    <p>Questions about your data, or to exercise any right above:
+    <a href="mailto:support@tactix-app.com">support@tactix-app.com</a><br>
+    Mohamed Amine Aouichi · Kuwait</p>
   </div>
 
   <div class="card" id="ar" dir="rtl" lang="ar">
-    <h2>١. من نحن</h2>
-    <p>«تاكتيكس» تطبيق لإدارة الفرق الرياضية موجَّه للمدربين، من تطوير محمد أمين عويشي. يساعد التطبيق المدرب على إدارة
-    قوائم اللاعبين والحضور والتدريبات والتقييمات والمستندات القابلة للطباعة. توضح هذه السياسة البيانات التي
-    يتعامل معها التطبيق وكيفية حمايتها.</p>
+    <h2>١. من نحن، ومسؤولية كل طرف</h2>
+    <p>«تاكتيكس» تطبيق لإدارة الفرق الرياضية موجَّه للمدربين، من تطوير محمد أمين عويشي (الكويت). يساعد التطبيق
+    المدرب على إدارة قوائم اللاعبين والحضور والتدريبات والتقييمات والمستندات القابلة للطباعة. توضّح هذه السياسة
+    البيانات التي يتعامل معها التطبيق وكيفية حمايتها.</p>
+    <p>يمرّ عبر التطبيق نوعان مختلفان من البيانات، ويختلف دورنا في كلٍّ منهما:</p>
+    <ul>
+      <li><b>حساب المدرب الخاص بك</b> — بريدك الإلكتروني واسم المدرب وحالة الاشتراك. ونحن هنا
+      <b>المتحكِّم في البيانات</b>، أي الجهة التي تحدّد أغراض المعالجة ووسائلها.</li>
+      <li><b>بيانات اللاعبين والفرق التي تُدخلها أنت</b> — ونحن هنا <b>معالِج للبيانات</b> فحسب، بينما
+      <b>المتحكِّم</b> هو أنت بصفتك المدرب (أو النادي أو الأكاديمية التي تعمل لديها). أنت من يقرّر ما يُسجَّل
+      ولماذا، ونحن نخزّنه ونعرضه لك وفق تعليماتك. وتُبيّن <a href="dpa.html">شروط معالجة البيانات</a> التزاماتنا
+      في هذا الدور.</li>
+    </ul>
 
     <h2>٢. البيانات التي يخزّنها التطبيق</h2>
     <ul>
-      <li><b>بيانات الحساب:</b> بريدك الإلكتروني وكلمة المرور (تُدار عبر خدمة Firebase للمصادقة) — أو، إذا اخترت «المتابعة بحساب Google»، البريد الإلكتروني والملف الأساسي (الاسم والصورة) لحسابك في Google. إضافةً إلى اسم المدرب وحالة الترخيص أو الاشتراك.</li>
-      <li><b>بيانات الفريق التي يُدخلها المدرب:</b> أسماء الفرق، وأسماء اللاعبين (بالإنجليزية والعربية)، وأرقام القمصان، والمراكز، وتواريخ الميلاد، ومنطقة السكن، وأرقام هواتف اللاعب وولي الأمر، وصور اللاعبين، وسجلات الحضور، والقياسات البدنية، وتقييمات المهارات، والملاحظات.</li>
-      <li><b>إعدادات التطبيق:</b> اللغة والمظهر وما شابهها من التفضيلات.</li>
+      <li><b>بيانات الحساب:</b> بريدك الإلكتروني وكلمة المرور (تُدار عبر خدمة Firebase للمصادقة) — أو، إذا اخترت
+      «المتابعة بحساب Google»، البريد الإلكتروني والملف الأساسي (الاسم والصورة) لحسابك في Google. إضافةً إلى اسم
+      المدرب وحالة الترخيص أو الاشتراك.</li>
+      <li><b>بيانات الفريق التي يُدخلها المدرب:</b> أسماء الفرق، وأسماء اللاعبين، وأرقام القمصان، والمراكز،
+      وتواريخ الميلاد، ومنطقة السكن، وأرقام هواتف اللاعب وولي الأمر، وصور اللاعبين، وسجلات الحضور، والقياسات
+      البدنية (الطول والوزن)، وتقييمات المهارات، والملاحظات الحرة.</li>
+      <li><b>إعدادات التطبيق:</b> اللغة والمظهر وما شابهها من التفضيلات، وتُحفظ على جهازك.</li>
     </ul>
-    <p>لا يحتوي التطبيق على <b>أي إعلانات ولا أدوات تحليل أو تتبّع</b>، ولا نجمع أي بيانات غير ما تُدخله بنفسك في التطبيق.</p>
+    <p>لا يحتوي التطبيق على <b>أي إعلانات ولا أدوات تحليل أو تتبّع من أي نوع</b>؛ فلا توجد حزم تطوير خارجية تجمع
+    سلوك المستخدم، ولا معرّفات إعلانية، ولا أي تنميط. ولا نجمع شيئًا خارج ما تُدخله بنفسك في التطبيق وما يلزم
+    لتسجيل دخولك.</p>
 
-    <h2>٣. كيفية استخدام البيانات</h2>
-    <p>تُستخدم بياناتك حصرًا لتقديم خدمات التطبيق: عرض قوائم اللاعبين، وتسجيل الحضور، وإنشاء مستندات PDF،
-    والنسخ الاحتياطي إلى السحابة لاستعادتها على جهاز آخر، وإرسال رسائل الحساب (رسالة ترحيب وتأكيد الحذف).
-    ولا تُستخدم مطلقًا لأغراض إعلانية <b>ولا تُباع</b>. وتُشارك فقط مع مزوّدي الخدمات الذين يشغّلون
-    التطبيق — Google Firebase (تسجيل الدخول وقاعدة البيانات) وResend (توصيل رسائل الحساب، ولا يعالج سوى
-    بريدك الإلكتروني) — ويعملون وفق تعليماتنا حصرًا.</p>
+    <h2>٣. أغراض الاستخدام والأساس القانوني</h2>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>الغرض</th><th>البيانات</th><th>الأساس القانوني (النظام الأوروبي/البريطاني)</th></tr></thead>
+      <tbody>
+        <tr><td>إنشاء حسابك وتشغيله وتسجيل دخولك</td><td>بيانات الحساب</td><td>تنفيذ عقد — المادة 6(1)(b)</td></tr>
+        <tr><td>تخزين بيانات فريقك ومزامنتها لاستخدامها على أجهزة متعددة</td><td>بيانات الفريق</td><td>تنفيذ عقد معك. أما بيانات اللاعبين أنفسهم فنعالجها وفق تعليماتك بصفتنا معالِجًا، والأساس القانوني لتسجيلها يعود إليك (انظر البند ٦)</td></tr>
+        <tr><td>إرسال رسائل الحساب (الترحيب وتأكيد الحذف)</td><td>البريد الإلكتروني</td><td>المصلحة المشروعة — المادة 6(1)(f): تأكيد إجراءات الحساب</td></tr>
+        <tr><td>التحقق من صلاحية اشتراكك أو رمز التفعيل</td><td>بيانات الحساب</td><td>تنفيذ عقد — المادة 6(1)(b)</td></tr>
+        <tr><td>حماية الخدمة ومنع إساءة الاستخدام</td><td>بيانات الحساب وسجلات الطلبات</td><td>المصلحة المشروعة — المادة 6(1)(f)</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p><b>لا تُباع بياناتك إطلاقًا</b>، ولا تُستخدم لأغراض إعلانية، ولا تُستخدم في تدريب نماذج الذكاء الاصطناعي.</p>
 
-    <h2>٤. أين تُخزَّن البيانات</h2>
+    <h2>٤. أين تُخزَّن البيانات ونقلها دوليًا</h2>
     <ul>
       <li><b>على جهازك</b> — يعمل التطبيق دون اتصال بالإنترنت ويحتفظ ببياناته محليًا.</li>
-      <li><b>في السحابة</b> — عند تسجيل الدخول، تُحفَظ نسخة احتياطية من بياناتك على خوادم Google Firebase مرتبطةً بحسابك ومحميةً بقواعد وصول لا تسمح لغيرك بالاطلاع عليها، وتُنقل البيانات عبر اتصالات مشفَّرة (HTTPS).</li>
+      <li><b>في السحابة</b> — عند تسجيل الدخول، تُحفَظ نسخة احتياطية من بياناتك على Google Cloud مرتبطةً بحسابك
+      ومحميةً بقواعد وصول لا تسمح لغيرك بالاطلاع عليها. وتُنقل البيانات عبر اتصالات مشفَّرة (HTTPS/TLS) وتُشفَّر
+      أثناء التخزين لدى Google.</li>
     </ul>
+    <p>مقرّنا الكويت، ونستعين بالمعالِجين التاليين؛ ولذلك تُنقل البيانات الشخصية لمستخدمي المنطقة الاقتصادية
+    الأوروبية أو المملكة المتحدة إلى خارج تلك المناطق:</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>المزوّد</th><th>وظيفته</th><th>البيانات التي يتلقّاها</th><th>الموقع</th></tr></thead>
+      <tbody>
+        <tr><td>Google Firebase Authentication</td><td>تسجيل الدخول وإدارة كلمات المرور</td><td>البريد الإلكتروني، وبصمة كلمة المرور، وأساسيات ملف Google</td><td>بنية Google التحتية، ومنها الولايات المتحدة</td></tr>
+        <tr><td>Google Cloud Firestore</td><td>النسخ الاحتياطي السحابي لبيانات التطبيق</td><td>كل ما تُدخله في التطبيق</td><td><b>الدوحة، قطر</b> (منطقة me-central1)</td></tr>
+        <tr><td>Google Cloud Functions</td><td>تشغيل رسائل الحساب</td><td>بريدك الإلكتروني فقط</td><td><b>آيوا، الولايات المتحدة</b> (منطقة us-central1)</td></tr>
+        <tr><td>Resend</td><td>توصيل رسائل الحساب</td><td>بريدك الإلكتروني فقط</td><td>الولايات المتحدة</td></tr>
+        <tr><td>Google Play Billing</td><td>معالجة مدفوعات الاشتراك</td><td>تتولاها Google بالكامل، ولا نتلقّى سوى ما إذا كان الاشتراك ساريًا</td><td>بنية Google التحتية</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>لا تشمل قرارات الكفاية الصادرة عن المفوضية الأوروبية كلًّا من الكويت وقطر. ولذلك تتم عمليات النقل إلى هذين
+    البلدين وإلى الولايات المتحدة بموجب <b>الشروط التعاقدية النموذجية</b> الصادرة عن المفوضية الأوروبية (مع
+    الملحق البريطاني لمستخدمي المملكة المتحدة)، إضافةً إلى التدابير التقنية الموضّحة في البند ٩. ويمكنك طلب نسخة
+    من هذه الشروط عبر <a href="mailto:support@tactix-app.com">support@tactix-app.com</a>.</p>
 
-    <h2>٥. اللاعبون والقاصرون</h2>
-    <p>التطبيق موجَّه للمدربين البالغين وليس مخصصًا للأطفال. وقد يسجّل المدرب بيانات لاعبين قاصرين،
-    ويتحمّل المدرب مسؤولية الحصول على موافقة ولي أمر اللاعب قبل إدخال بياناته في التطبيق.</p>
+    <h2>٥. مع من تُشارَك البيانات</h2>
+    <p>لا تُشارَك إلا مع المزوّدين المذكورين في الجدول أعلاه، ويعمل كلٌّ منهم وفق تعليماتنا حصرًا وبموجب عقد مكتوب.
+    ولا نشارك بياناتك مع أي جهة أخرى. وقد نفصح عنها إذا ألزمنا القانون بذلك، وسنُعلمك في هذه الحالة ما لم يمنع
+    القانون ذلك.</p>
 
-    <h2>٦. الاحتفاظ بالبيانات وحذفها</h2>
+    <h2>٦. اللاعبون والقاصرون ومسؤولياتك بصفتك مدربًا</h2>
+    <p>صُمّم «تاكتيكس» <b>للمدربين البالغين</b> ويُباع لهم، وهو ليس موجَّهًا للأطفال، وغير مدرَج ضمن برنامج
+    «العائلات» في Google Play. ولا يملك الأطفال حسابات فيه، ولا يمكنهم تسجيل الدخول، ولا نتواصل معهم إطلاقًا.</p>
+    <p>غير أنّ المدربين يسجّلون بيانات لاعبين هم غالبًا قاصرون. وعند قيامك بذلك تكون <b>أنت أو ناديك المتحكِّم في
+    البيانات</b>، وتتحمّل مسؤولية مشروعية هذا التسجيل، وعلى وجه الخصوص:</p>
     <ul>
-      <li>يمكنك تعديل أو حذف أي لاعب أو فريق أو سجل من داخل التطبيق في أي وقت، وتنعكس عمليات الحذف على النسخة السحابية عند المزامنة التالية.</li>
-      <li>يمكنك حذف حسابك وبياناتك السحابية بالكامل — راجع صفحة <a href="delete-account.html">حذف الحساب</a>. وتُنفَّذ الطلبات خلال ٣٠ يومًا.</li>
+      <li>يجب أن يتوفّر لديك أساس قانوني صحيح لتسجيل بيانات كل لاعب، وهو عمليًا <b>موافقة موثّقة من أحد الوالدين
+      أو الوصي القانوني</b>، أو مصلحة مشروعة موثّقة للنادي.</li>
+      <li>في الاتحاد الأوروبي، يُحدَّد سنّ الموافقة الذاتية للطفل وطنيًا بين ١٣ و١٦ عامًا، وما دون ذلك تلزم موافقة
+      ولي الأمر. وفي الولايات المتحدة، يشترط قانون حماية خصوصية الأطفال على الإنترنت (COPPA) موافقة أبوية موثّقة
+      قبل جمع بيانات شخصية عن طفل دون سنّ الثالثة عشرة.</li>
+      <li>عليك إبلاغ أولياء الأمور واللاعبين بما تسجّله ولماذا، وتمكينهم من الاطلاع عليه أو تصحيحه أو سحبه.</li>
+      <li>سجِّل ما تحتاجه فعلًا فقط؛ فالتطبيق لا يشترط الصور ولا أرقام الهواتف ولا منطقة السكن ولا الملاحظات،
+      فاتركها فارغة متى لم تكن ضرورية.</li>
+    </ul>
+    <p>ونحن نعينك على ذلك: جميع الحقول اختيارية عدا اسم اللاعب، ويمكن تعديل أي بيانات أو حذفها من داخل التطبيق في
+    أي وقت، كما يتوفّر تصدير كامل لها في أي لحظة.</p>
+    <p>وإذا كنت وليّ أمر وترى أنّ مدربًا سجّل بيانات طفلك دون أساس سليم، فتواصل أولًا مع المدرب أو النادي لأنهما
+    يتحكّمان في تلك البيانات. ويمكنك أيضًا مراسلتنا على
+    <a href="mailto:support@tactix-app.com">support@tactix-app.com</a> وسنساعد في تحديد صاحب الحساب، والعمل عند
+    الاقتضاء على إزالة البيانات.</p>
+
+    <h2>٧. مدة الاحتفاظ بالبيانات</h2>
+    <ul>
+      <li><b>بيانات الفرق واللاعبين</b> — يُحتفظ بها ما دام حسابك قائمًا، لأنها سجلّ عملك. ويمكنك حذف أي جزء منها
+      في أي وقت، وتنعكس عمليات الحذف على النسخة السحابية عند المزامنة التالية.</li>
+      <li><b>بيانات الحساب</b> — يُحتفظ بها ما دام حسابك نشطًا.</li>
+      <li><b>بعد حذف الحساب</b> — تُمحى بياناتك السحابية وسجلّ دخولك فورًا، وتُزال أي نسخ متبقّية في لقطات النظام
+      خلال <b>٣٠ يومًا</b>.</li>
+      <li><b>سجلات إرسال البريد</b> — يحتفظ بها مزوّد البريد لدينا مدةً تشغيلية قصيرة ثم تُحذف، وهي لا تتضمّن سوى
+      العنوان ونتيجة الإرسال.</li>
     </ul>
 
-    <h2>٧. المدفوعات</h2>
-    <p>تُشترى اشتراكات «تاكتيكس بريميوم» عبر Google Play، وتُصدر رموز التفعيل مباشرةً من جهتنا.
-    تُعالج المدفوعات بالكامل لدى Google — <b>ولا نطّلع على بيانات بطاقتك أو الدفع ولا نخزّنها إطلاقًا</b>.</p>
+    <h2>٨. حقوقك</h2>
+    <h3>إذا كنت في الاتحاد الأوروبي أو المنطقة الاقتصادية الأوروبية أو المملكة المتحدة أو سويسرا</h3>
+    <p>لك الحق في الاطلاع على بياناتك وتصحيحها ومحوها وتقييد معالجتها أو الاعتراض عليها، وفي تلقّيها بصيغة قابلة
+    للنقل، وفي سحب موافقتك متى كانت الموافقة هي الأساس. ويمكنك ممارسة معظم هذه الحقوق بنفسك وفورًا من داخل
+    التطبيق: <i>الإعدادات ← حفظ نسخة احتياطية</i> يمنحك تصديرًا كاملًا قابلًا للقراءة آليًا، و<i>الإعدادات ←
+    حذف الحساب</i> يمحو كل شيء.</p>
+    <p>ولأي طلب آخر راسلنا على <a href="mailto:support@tactix-app.com">support@tactix-app.com</a>، وسنردّ خلال
+    <b>شهر واحد</b>. ولك كذلك الحق في تقديم شكوى إلى هيئة حماية البيانات في بلدك.</p>
+    <h3>إذا كنت في الولايات المتحدة</h3>
+    <p>قد يكون لك، بحسب ولايتك، الحق في معرفة البيانات الشخصية التي نحتفظ بها والحصول على نسخة منها وتصحيحها
+    وحذفها، وعدم التعرّض للتمييز بسبب ممارسة هذه الحقوق. وتلبّي أدوات التصدير والحذف داخل التطبيق هذه الطلبات
+    فورًا.</p>
+    <p>ونودّ أن نكون واضحين في النقطة الأهم لدى هذه القوانين: <b>نحن لا نبيع بياناتك الشخصية، ولا نشاركها لأغراض
+    الإعلانات السلوكية عبر السياقات</b>، ولم نفعل ذلك قط. فالتطبيق خالٍ من الإعلانات والتتبّع، ولا يوجد ما
+    تنسحب منه.</p>
 
-    <h2>٨. التعديلات على هذه السياسة</h2>
-    <p>في حال تعديل هذه السياسة، تُنشر النسخة المحدَّثة على هذا العنوان مع تاريخ سريان جديد.</p>
+    <h2>٩. الأمان</h2>
+    <ul>
+      <li>تُشفَّر جميع الاتصالات بين التطبيق وخوادمنا عبر TLS، وتُشفَّر البيانات أثناء التخزين.</li>
+      <li>تفرض قواعد قاعدة البيانات أن يقرأ المدرب المسجَّل بياناته هو فقط ويكتبها، وهذا مطبَّق على الخادم لا في
+      التطبيق وحده.</li>
+      <li>لا نخزّن كلمات المرور بصيغة قابلة للقراءة إطلاقًا، وتتولّى المصادقة خدمة Google Firebase.</li>
+      <li>الوصول إلى أنظمة التشغيل مقصور على المطوّر ومحمي بالتحقّق بخطوتين.</li>
+    </ul>
+    <p>وفي حال وقوع أي اختراق للبيانات الشخصية، سنُبلغ الجهة الرقابية المختصة خلال <b>٧٢ ساعة</b> من علمنا به متى
+    اشترط القانون ذلك، وسنُعلم المستخدمين والمتحكّمين المتأثرين دون تأخير غير مبرَّر.</p>
 
-    <h2>٩. التواصل</h2>
-    <p>لأي استفسار عن بياناتك، راسلنا على: <a href="mailto:support@tactix-app.com">support@tactix-app.com</a></p>
+    <h2>١٠. المدفوعات</h2>
+    <p>تُشترى اشتراكات «تاكتيكس بريميوم» عبر Google Play، وتُصدر رموز التفعيل مباشرةً من جهتنا. وتُعالج المدفوعات
+    بالكامل لدى Google — <b>ولا نطّلع على بيانات بطاقتك أو الدفع ولا نخزّنها إطلاقًا</b>.</p>
+
+    <h2>١١. التعديلات على هذه السياسة</h2>
+    <p>في حال تعديل هذه السياسة، تُنشر النسخة المحدَّثة على هذا العنوان مع تاريخ سريان جديد. وإذا مسّ التعديل
+    حقوقك بصورة جوهرية، فسنُعلمك أيضًا داخل التطبيق أو عبر البريد الإلكتروني.</p>
+
+    <h2>١٢. التواصل</h2>
+    <p>لأي استفسار عن بياناتك أو لممارسة أي من الحقوق أعلاه:
+    <a href="mailto:support@tactix-app.com">support@tactix-app.com</a><br>
+    محمد أمين عويشي · الكويت</p>
   </div>
 
-  <div class="footer">Tactix © 2026 · <a href="delete-account.html">Delete your account · حذف الحساب</a></div>
+  <div class="footer">Tactix © 2026 · <a href="dpa.html">Data Processing Terms</a> · <a href="delete-account.html">Delete your account · حذف الحساب</a></div>
 
 </div>
 </body>
