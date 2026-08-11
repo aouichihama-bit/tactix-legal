@@ -64,7 +64,7 @@
   <div class="card">
     <div class="brand">TACTI<span class="x">X</span></div>
     <div class="doc-title">Privacy Policy · سياسة الخصوصية</div>
-    <div class="meta">Effective date: 9 August 2026 · App: Tactix · Developer: Mohamed Amine Aouichi, Kuwait · Contact: support@tactix-app.com</div>
+    <div class="meta">Effective date: 11 August 2026 · App: Tactix · Developer: Mohamed Amine Aouichi, Kuwait · Contact: support@tactix-app.com</div>
     <div class="lang-nav"><a href="#en">English</a><a href="#ar">العربية</a><a href="dpa.html">Data Processing Terms</a></div>
   </div>
 
@@ -91,11 +91,18 @@
       <li><b>Team data entered by you (the coach):</b> team names, player names, jersey numbers, positions, dates
       of birth, residential zone, player and parent phone numbers, player photos, attendance records, physical
       measurements (height and weight), skill evaluations and free-text notes.</li>
-      <li><b>App settings:</b> language, theme and similar preferences, stored on your device.</li>
+      <li><b>App settings:</b> language, theme and similar preferences, plus simple usage counters (for
+      example, how many PDFs you have exported — used only to decide when to show you an upgrade
+      suggestion). All of these are stored <b>only on your device</b> and are never sent to us.</li>
     </ul>
-    <p>Tactix contains <b>no advertising, no analytics and no tracking tools of any kind</b>. There are no
-    third-party SDKs collecting behaviour, no advertising identifiers, and no profiling. We collect nothing
-    beyond what you type into the app and what is needed to sign you in.</p>
+    <p>Tactix contains <b>no advertising, no analytics and no tracking of any kind</b> — no advertising
+    identifiers, no profiling, and nothing that records how you use the app. We collect nothing beyond what you
+    type into the app and what is needed to sign you in.</p>
+    <p>There is one exception, and it is worth stating plainly: <b>when the app crashes, it sends us a crash
+    report</b> so the fault can be found and fixed. A report contains the error, the line of code it happened on,
+    and the device model and Android version — never your data. It is deliberately configured to exclude your
+    identity, your IP address, screenshots, and any record of what you were doing beforehand, and any text that
+    looks like a phone number or an email address is removed before the report leaves your phone.</p>
 
     <h2>3. Why we use it, and our legal basis</h2>
     <div class="tablewrap">
@@ -104,8 +111,8 @@
       <tbody>
         <tr><td>Creating and running your account; signing you in</td><td>Account data</td><td>Performance of a contract — Art. 6(1)(b)</td></tr>
         <tr><td>Storing and syncing your team data so you can use it across devices</td><td>Team data</td><td>Performance of a contract with you. For the players' own data we act on your instructions as processor — the lawful basis for recording it is yours (see section 6)</td></tr>
-        <tr><td>Sending account emails (welcome, deletion confirmation)</td><td>Email address</td><td>Legitimate interests — Art. 6(1)(f): confirming account actions</td></tr>
-        <tr><td>Checking whether your subscription or activation code is valid</td><td>Account data</td><td>Performance of a contract — Art. 6(1)(b)</td></tr>
+        <tr><td>Sending account emails (email-verification codes, welcome, deletion confirmation)</td><td>Email address</td><td>Legitimate interests — Art. 6(1)(f): confirming account actions and verifying the address is yours</td></tr>
+        <tr><td>Checking whether your subscription is active</td><td>Account data</td><td>Performance of a contract — Art. 6(1)(b)</td></tr>
         <tr><td>Keeping the service secure and preventing abuse</td><td>Account data, request logs</td><td>Legitimate interests — Art. 6(1)(f)</td></tr>
       </tbody>
     </table>
@@ -115,10 +122,11 @@
 
     <h2>4. Where the data is stored, and international transfers</h2>
     <ul>
-      <li><b>On your device</b> — the app works fully offline and keeps its data locally.</li>
-      <li><b>In the cloud</b> — when you are signed in, your data is backed up to Google Cloud, linked to your
-      account and protected by access rules so that only you can read it. All transfers use encrypted (HTTPS/TLS)
-      connections, and data is encrypted at rest by Google.</li>
+      <li><b>On your device</b> — the app works fully offline and keeps its data locally, stored separately
+      per signed-in account. On the free plan this is the <b>only</b> place your team data lives.</li>
+      <li><b>In the cloud</b> — with an active Premium subscription and a verified email address, your data is
+      backed up to Google Cloud, linked to your account and protected by access rules so that only you can read
+      it. All transfers use encrypted (HTTPS/TLS) connections, and data is encrypted at rest by Google.</li>
     </ul>
     <p>We are based in Kuwait and use the following processors. Because of this, personal data of users in the
     European Economic Area or the United Kingdom is transferred outside those areas:</p>
@@ -131,6 +139,7 @@
         <tr><td>Google Cloud Functions</td><td>Triggers the account emails</td><td>Your email address only</td><td><b>Iowa, United States</b> (region us-central1)</td></tr>
         <tr><td>Resend</td><td>Delivers the account emails</td><td>Your email address only</td><td>United States</td></tr>
         <tr><td>Google Play Billing</td><td>Processes subscription payments</td><td>Handled entirely by Google; we receive only whether a subscription is active</td><td>Google infrastructure</td></tr>
+        <tr><td>Sentry</td><td>Receives a report when the app crashes</td><td>The error and the device model. No identity, no IP address, no personal data</td><td>European Union</td></tr>
       </tbody>
     </table>
     </div>
@@ -210,8 +219,9 @@
     controllers without undue delay.</p>
 
     <h2>10. Payments</h2>
-    <p>Tactix Premium subscriptions are purchased through Google Play; activation codes are issued directly by us.
-    Payments are processed entirely by Google — <b>we never see or store your card or payment details</b>.</p>
+    <p>Tactix Premium is a yearly subscription purchased through Google Play. Payments are processed entirely
+    by Google — <b>we never see or store your card or payment details</b>; we receive only whether a
+    subscription is active.</p>
 
     <h2>11. Changes to this policy</h2>
     <p>If this policy changes, the updated version will be published at this address with a new effective date.
@@ -246,11 +256,16 @@
       <li><b>بيانات الفريق التي يُدخلها المدرب:</b> أسماء الفرق، وأسماء اللاعبين، وأرقام القمصان، والمراكز،
       وتواريخ الميلاد، ومنطقة السكن، وأرقام هواتف اللاعب وولي الأمر، وصور اللاعبين، وسجلات الحضور، والقياسات
       البدنية (الطول والوزن)، وتقييمات المهارات، والملاحظات الحرة.</li>
-      <li><b>إعدادات التطبيق:</b> اللغة والمظهر وما شابهها من التفضيلات، وتُحفظ على جهازك.</li>
+      <li><b>إعدادات التطبيق:</b> اللغة والمظهر وما شابهها من التفضيلات، إضافةً إلى عدّادات استخدام بسيطة
+      (مثل عدد ملفات PDF التي صدّرتها، وتُستخدم فقط لتحديد وقت عرض اقتراح الترقية عليك). وتُحفظ جميعها
+      <b>على جهازك فقط</b> ولا تُرسل إلينا إطلاقًا.</li>
     </ul>
-    <p>لا يحتوي التطبيق على <b>أي إعلانات ولا أدوات تحليل أو تتبّع من أي نوع</b>؛ فلا توجد حزم تطوير خارجية تجمع
-    سلوك المستخدم، ولا معرّفات إعلانية، ولا أي تنميط. ولا نجمع شيئًا خارج ما تُدخله بنفسك في التطبيق وما يلزم
-    لتسجيل دخولك.</p>
+    <p>لا يحتوي التطبيق على <b>أي إعلانات ولا أدوات تحليل أو تتبّع من أي نوع</b>؛ فلا معرّفات إعلانية، ولا تنميط،
+    ولا شيء يسجّل طريقة استخدامك للتطبيق. ولا نجمع شيئًا خارج ما تُدخله بنفسك فيه وما يلزم لتسجيل دخولك.</p>
+    <p>وهناك استثناء واحد نذكره بوضوح: <b>عند تعطّل التطبيق يُرسَل إلينا تقرير عُطل</b> لنتمكّن من تحديد الخلل
+    وإصلاحه. ويتضمّن التقرير وصف الخطأ وسطر الشيفرة الذي وقع فيه وطراز الجهاز وإصدار أندرويد — لا بياناتك.
+    وقد ضُبط عمدًا ليستثني هويتك وعنوان الـIP الخاص بك ولقطات الشاشة وأي سجلّ لما كنت تفعله قبل العُطل، كما يُزال
+    أي نص يشبه رقم هاتف أو بريدًا إلكترونيًا قبل مغادرة التقرير هاتفك.</p>
 
     <h2>٣. أغراض الاستخدام والأساس القانوني</h2>
     <div class="tablewrap">
@@ -259,8 +274,8 @@
       <tbody>
         <tr><td>إنشاء حسابك وتشغيله وتسجيل دخولك</td><td>بيانات الحساب</td><td>تنفيذ عقد — المادة 6(1)(b)</td></tr>
         <tr><td>تخزين بيانات فريقك ومزامنتها لاستخدامها على أجهزة متعددة</td><td>بيانات الفريق</td><td>تنفيذ عقد معك. أما بيانات اللاعبين أنفسهم فنعالجها وفق تعليماتك بصفتنا معالِجًا، والأساس القانوني لتسجيلها يعود إليك (انظر البند ٦)</td></tr>
-        <tr><td>إرسال رسائل الحساب (الترحيب وتأكيد الحذف)</td><td>البريد الإلكتروني</td><td>المصلحة المشروعة — المادة 6(1)(f): تأكيد إجراءات الحساب</td></tr>
-        <tr><td>التحقق من صلاحية اشتراكك أو رمز التفعيل</td><td>بيانات الحساب</td><td>تنفيذ عقد — المادة 6(1)(b)</td></tr>
+        <tr><td>إرسال رسائل الحساب (رموز التحقق من البريد، والترحيب، وتأكيد الحذف)</td><td>البريد الإلكتروني</td><td>المصلحة المشروعة — المادة 6(1)(f): تأكيد إجراءات الحساب والتحقق من أن العنوان يخصّك</td></tr>
+        <tr><td>التحقق من سريان اشتراكك</td><td>بيانات الحساب</td><td>تنفيذ عقد — المادة 6(1)(b)</td></tr>
         <tr><td>حماية الخدمة ومنع إساءة الاستخدام</td><td>بيانات الحساب وسجلات الطلبات</td><td>المصلحة المشروعة — المادة 6(1)(f)</td></tr>
       </tbody>
     </table>
@@ -269,10 +284,11 @@
 
     <h2>٤. أين تُخزَّن البيانات ونقلها دوليًا</h2>
     <ul>
-      <li><b>على جهازك</b> — يعمل التطبيق دون اتصال بالإنترنت ويحتفظ ببياناته محليًا.</li>
-      <li><b>في السحابة</b> — عند تسجيل الدخول، تُحفَظ نسخة احتياطية من بياناتك على Google Cloud مرتبطةً بحسابك
-      ومحميةً بقواعد وصول لا تسمح لغيرك بالاطلاع عليها. وتُنقل البيانات عبر اتصالات مشفَّرة (HTTPS/TLS) وتُشفَّر
-      أثناء التخزين لدى Google.</li>
+      <li><b>على جهازك</b> — يعمل التطبيق دون اتصال بالإنترنت ويحتفظ ببياناته محليًا، مخزَّنةً بشكل منفصل لكل
+      حساب مسجَّل. وفي الخطة المجانية يكون جهازك هو <b>المكان الوحيد</b> الذي تُحفظ فيه بيانات فريقك.</li>
+      <li><b>في السحابة</b> — مع اشتراك بريميوم ساري المفعول وبريد إلكتروني مُتحقَّق منه، تُحفَظ نسخة احتياطية من
+      بياناتك على Google Cloud مرتبطةً بحسابك ومحميةً بقواعد وصول لا تسمح لغيرك بالاطلاع عليها. وتُنقل البيانات
+      عبر اتصالات مشفَّرة (HTTPS/TLS) وتُشفَّر أثناء التخزين لدى Google.</li>
     </ul>
     <p>مقرّنا الكويت، ونستعين بالمعالِجين التاليين؛ ولذلك تُنقل البيانات الشخصية لمستخدمي المنطقة الاقتصادية
     الأوروبية أو المملكة المتحدة إلى خارج تلك المناطق:</p>
@@ -285,6 +301,7 @@
         <tr><td>Google Cloud Functions</td><td>تشغيل رسائل الحساب</td><td>بريدك الإلكتروني فقط</td><td><b>آيوا، الولايات المتحدة</b> (منطقة us-central1)</td></tr>
         <tr><td>Resend</td><td>توصيل رسائل الحساب</td><td>بريدك الإلكتروني فقط</td><td>الولايات المتحدة</td></tr>
         <tr><td>Google Play Billing</td><td>معالجة مدفوعات الاشتراك</td><td>تتولاها Google بالكامل، ولا نتلقّى سوى ما إذا كان الاشتراك ساريًا</td><td>بنية Google التحتية</td></tr>
+        <tr><td>Sentry</td><td>تلقّي تقرير عند تعطّل التطبيق</td><td>وصف الخطأ وطراز الجهاز. لا هوية ولا عنوان IP ولا بيانات شخصية</td><td>الاتحاد الأوروبي</td></tr>
       </tbody>
     </table>
     </div>
@@ -359,8 +376,8 @@
     اشترط القانون ذلك، وسنُعلم المستخدمين والمتحكّمين المتأثرين دون تأخير غير مبرَّر.</p>
 
     <h2>١٠. المدفوعات</h2>
-    <p>تُشترى اشتراكات «تاكتيكس بريميوم» عبر Google Play، وتُصدر رموز التفعيل مباشرةً من جهتنا. وتُعالج المدفوعات
-    بالكامل لدى Google — <b>ولا نطّلع على بيانات بطاقتك أو الدفع ولا نخزّنها إطلاقًا</b>.</p>
+    <p>«تاكتيكس بريميوم» اشتراك سنوي يُشترى عبر Google Play. وتُعالج المدفوعات بالكامل لدى Google —
+    <b>ولا نطّلع على بيانات بطاقتك أو الدفع ولا نخزّنها إطلاقًا</b>، ولا نتلقّى سوى ما إذا كان الاشتراك ساريًا.</p>
 
     <h2>١١. التعديلات على هذه السياسة</h2>
     <p>في حال تعديل هذه السياسة، تُنشر النسخة المحدَّثة على هذا العنوان مع تاريخ سريان جديد. وإذا مسّ التعديل
