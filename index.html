@@ -3,258 +3,108 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tactix — The Coach's Complete Companion</title>
-<meta name="description" content="Tactix — roster, attendance in seconds, training plans with drawn plays, evaluations and letterhead-grade PDF documents. Built for real coaches. Coming to Google Play.">
+<title>Tactix — The Coach's Complete Companion · تاكتيكس</title>
+<meta name="description" content="Tactix — rosters, attendance, training plans, evaluations and professional PDF documents for basketball coaches. English & Arabic.">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0e1728; --bg2: #0a111f; --card: #131f33; --line: #223148;
-    --text: #eef2f8; --dim: #93a0b4; --orange: #e67e22; --green: #2e9e5b; --blue: #7ea1ff;
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    margin: 0;
+    background: #0e1728;
+    color: #eef2f8;
+    line-height: 1.65;
   }
-  body { font-family: "Segoe UI", Tahoma, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
-  a { color: var(--orange); text-decoration: none; }
-  img { max-width: 100%; display: block; }
-  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 22px; }
-
-  /* ---- hero ---- */
-  .hero { position: relative; background: radial-gradient(120% 90% at 50% 0%, #1b2c4d 0%, var(--bg) 60%, var(--bg2) 100%); padding: 70px 0 0; overflow: hidden; }
-  .court { position: absolute; left: 50%; top: 40px; transform: translateX(-50%); width: 900px; height: 900px; opacity: .8; pointer-events: none; }
-  .hero-inner { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 40px; padding-bottom: 0; }
-  .hero-copy { flex: 1 1 340px; padding-bottom: 60px; }
-  .brand { font-size: 52px; font-weight: 900; letter-spacing: 1px; }
-  .brand .x { color: var(--orange); }
-  h1 { font-size: 40px; line-height: 1.15; font-weight: 900; margin-top: 18px; letter-spacing: -0.5px; }
-  h1 em { font-style: normal; color: var(--orange); }
-  .sub { font-size: 17px; color: var(--dim); margin-top: 14px; max-width: 46ch; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; align-items: center; }
-  .btn { display: inline-block; background: var(--orange); color: #fff; font-weight: 800; padding: 13px 24px; border-radius: 12px; font-size: 15px; }
-  .btn:hover { filter: brightness(1.08); }
-  .btn.ghost { background: transparent; border: 1.5px solid var(--line); color: var(--text); }
-  .beta-chip { display: inline-flex; align-items: center; gap: 8px; background: rgba(46,158,91,.12); border: 1px solid rgba(46,158,91,.5); color: #58c98b; border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; }
-  .beta-chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #58c98b; }
-  .hero-shot { flex: 0 1 320px; margin: 0 auto; }
-  .hero-shot img { width: 300px; border-radius: 26px; border: 2px solid rgba(255,255,255,.14); box-shadow: 0 30px 70px rgba(0,0,0,.55); }
-
-  /* ---- sections ---- */
-  section { padding: 70px 0; }
-  .kicker { font-size: 12px; font-weight: 800; letter-spacing: 2.5px; color: var(--orange); text-transform: uppercase; }
-  h2 { font-size: 30px; font-weight: 900; margin-top: 8px; letter-spacing: -0.3px; }
-  .lead { color: var(--dim); margin-top: 10px; max-width: 62ch; }
-
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 34px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
-  .card .ic { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-weight: 900; font-size: 17px; }
-  .card h3 { font-size: 16.5px; margin-bottom: 6px; }
-  .card p { font-size: 13.5px; color: var(--dim); }
-
-  /* ---- screens ---- */
-  .screens { background: var(--bg2); }
-  .phones { display: flex; flex-wrap: wrap; gap: 26px; justify-content: center; margin-top: 40px; }
-  .phone { text-align: center; }
-  .phone img { width: 250px; border-radius: 22px; border: 2px solid rgba(255,255,255,.12); box-shadow: 0 20px 50px rgba(0,0,0,.5); }
-  .phone figcaption { margin-top: 14px; font-size: 14px; font-weight: 700; }
-  .phone figcaption span { display: block; font-weight: 400; font-size: 12.5px; color: var(--dim); }
-
-  /* ---- documents ---- */
-  .docs-flex { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 36px; align-items: flex-start; }
-  .doc { flex: 1 1 320px; }
-  .doc img { border-radius: 12px; box-shadow: 0 18px 46px rgba(0,0,0,.5); transform: rotate(-1deg); }
-  .doc:last-child img { transform: rotate(1deg); }
-  .doc-points { flex: 1 1 280px; }
-  .doc-points li { list-style: none; padding-left: 26px; position: relative; margin-bottom: 12px; font-size: 14.5px; color: var(--dim); }
-  .doc-points li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
-  .doc-points li b { color: var(--text); }
-
-  /* ---- pricing ---- */
-  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 34px; max-width: 720px; }
-  .plan { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; }
-  .plan.pro { border-color: rgba(230,126,34,.55); background: linear-gradient(180deg, rgba(230,126,34,.07), var(--card) 40%); }
-  .plan h3 { font-size: 20px; }
-  .plan .tagp { color: var(--dim); font-size: 13px; margin-top: 2px; }
-  .plan ul { margin-top: 16px; }
-  .plan li { list-style: none; padding-left: 24px; position: relative; margin-bottom: 9px; font-size: 14px; color: var(--dim); }
-  .plan li::before { content: "•"; position: absolute; left: 6px; color: var(--orange); font-weight: 900; }
-  .plan.pro li::before { content: "★"; font-size: 11px; left: 3px; top: 3px; }
-  .plan .price { margin-top: 16px; font-weight: 900; font-size: 15px; color: var(--text); }
-
-  /* ---- languages ---- */
-  .langs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-  .lang { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 7px 16px; font-size: 13.5px; font-weight: 700; color: var(--dim); }
-
-  /* ---- beta ---- */
-  .beta-box { background: linear-gradient(135deg, rgba(230,126,34,.14), rgba(230,126,34,.04)); border: 1.5px solid rgba(230,126,34,.5); border-radius: 20px; padding: 36px; text-align: center; }
-  .beta-box h2 { margin-top: 0; }
-  .beta-box p { color: var(--dim); max-width: 54ch; margin: 12px auto 0; }
-
-  footer { border-top: 1px solid var(--line); padding: 34px 0 44px; text-align: center; font-size: 13px; color: var(--dim); }
-  footer .links { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; margin-bottom: 14px; }
-  footer a { color: var(--dim); }
-  footer a:hover { color: var(--orange); }
-
-  @media (max-width: 720px) {
-    h1 { font-size: 31px; }
-    .hero { padding-top: 50px; }
-    section { padding: 52px 0; }
+  .hero {
+    text-align: center;
+    padding: 72px 20px 48px;
+    background: linear-gradient(180deg, #0a111f 0%, #0e1728 100%);
   }
+  .brand { font-size: 54px; font-weight: 900; letter-spacing: 2px; color: #ffffff; }
+  .brand .x { color: #e67e22; }
+  .tagline { font-size: 19px; color: rgba(255,255,255,0.85); margin-top: 10px; }
+  .tagline-ar { font-size: 17px; color: rgba(255,255,255,0.7); margin-top: 6px; direction: rtl; }
+  .rule { width: 64px; height: 4px; background: #e67e22; border-radius: 2px; margin: 26px auto 0; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 30px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card {
+    background: #131f33;
+    border: 1px solid #223148;
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .card h3 { margin: 0 0 6px; font-size: 16px; color: #ffffff; }
+  .card p { margin: 0; font-size: 13.5px; color: #93a0b4; }
+  .card .ar { display: block; margin-top: 8px; direction: rtl; text-align: right; color: #7f8da3; font-size: 13px; }
+  .soon {
+    text-align: center;
+    margin: 40px auto 0;
+    max-width: 560px;
+    background: rgba(230,126,34,0.1);
+    border: 1px solid rgba(230,126,34,0.45);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #ffd9b3;
+  }
+  footer {
+    text-align: center;
+    padding: 34px 20px 44px;
+    color: #6b7684;
+    font-size: 13px;
+    border-top: 1px solid #1b2942;
+    margin-top: 44px;
+  }
+  footer a { color: #e67e22; text-decoration: none; font-weight: 600; }
+  footer .links { margin-bottom: 10px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
 </style>
 </head>
 <body>
 
-<!-- ================= HERO ================= -->
-<header class="hero">
-  <svg class="court" viewBox="0 0 100 100" fill="none">
-    <circle cx="50" cy="50" r="34" stroke="rgba(255,255,255,0.05)" stroke-width="0.6"/>
-    <circle cx="50" cy="50" r="49" stroke="rgba(255,255,255,0.03)" stroke-width="0.4"/>
-    <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.04)" stroke-width="0.4"/>
-    <path d="M 16 50 A 34 34 0 0 1 84 50" stroke="#e67e22" stroke-opacity="0.25" stroke-width="0.8"/>
-  </svg>
-  <div class="wrap hero-inner">
-    <div class="hero-copy">
-      <div class="brand">Tacti<span class="x">X</span></div>
-      <span class="beta-chip" style="margin-top:16px">Now in closed beta on Google Play</span>
-      <h1>Run your team like the <em>pros</em> do.</h1>
-      <p class="sub">Roster, attendance, training plans with drawn plays, player evaluations and letterhead-grade PDF documents — everything a coach juggles, in one fast app that works offline.</p>
-      <div class="cta-row">
-        <a class="btn" href="mailto:support@tactix-app.com?subject=Tactix%20beta%20invite&body=Hi!%20I%27d%20like%20to%20join%20the%20Tactix%20beta.%20My%20Google%20account%20email%20is:%20">Join the beta</a>
-        <a class="btn ghost" href="#features">See what's inside</a>
-      </div>
-    </div>
-    <figure class="hero-shot">
-      <img src="img/home.png" alt="Tactix home screen — the day at a glance" width="300" height="600">
-    </figure>
-  </div>
-</header>
+<div class="hero">
+  <div class="brand">TACTI<span class="x">X</span></div>
+  <div class="tagline">The basketball coach's complete companion.</div>
+  <div class="tagline-ar">رفيق مدرب كرة السلة الكامل — بالعربية والإنجليزية</div>
+  <div class="rule"></div>
+</div>
 
-<!-- ================= FEATURES ================= -->
-<section id="features">
-  <div class="wrap">
-    <div class="kicker">Everything in one place</div>
-    <h2>Your whole coaching day. One screen.</h2>
-    <p class="lead">Open the app and today is already there: this week's sessions, the next game with its countdown, and a short list of what needs your attention — missing player details, overdue check-ups, birthdays.</p>
-    <div class="grid">
-      <div class="card"><div class="ic" style="background:rgba(46,158,91,.15);color:#58c98b">✓</div><h3>Roll call in seconds</h3><p>Tap present, tap absent, done. The monthly grid, per-player stats and totals fill themselves.</p></div>
-      <div class="card"><div class="ic" style="background:rgba(126,161,255,.15);color:#7ea1ff">▦</div><h3>Squad &amp; profiles</h3><p>Every player one tap away — numbers, positions, family contacts, growth tracking and history.</p></div>
-      <div class="card"><div class="ic" style="background:rgba(230,126,34,.15);color:#e67e22">✎</div><h3>Plays you can draw</h3><p>A real court under your finger: arrows, screens, dribbles, numbered players — or a blank chalkboard in any color.</p></div>
-      <div class="card"><div class="ic" style="background:rgba(212,175,55,.15);color:#d4af37">◎</div><h3>Evaluations that mean something</h3><p>Technique checklists per sport, scores out of 10, custom aspects — and a report to hand to parents.</p></div>
-      <div class="card"><div class="ic" style="background:rgba(126,161,255,.15);color:#7ea1ff">▤</div><h3>Training, planned</h3><p>Build sessions drill by drill, plan the whole week, and grow a reusable drill library season after season.</p></div>
-      <div class="card"><div class="ic" style="background:rgba(230,126,34,.15);color:#e67e22">⎙</div><h3>PDFs that look professional</h3><p>Rosters, attendance, evaluations and training sheets on your club's letterhead — pick the design, colors and margins.</p></div>
-      <div class="card"><div class="ic" style="background:rgba(46,158,91,.15);color:#58c98b">↺</div><h3>Works offline. Syncs when you're back.</h3><p>The gym has no Wi-Fi? Nothing stops. Premium keeps every device in sync through the cloud.</p></div>
-      <div class="card"><div class="ic" style="background:rgba(212,175,55,.15);color:#d4af37">⚑</div><h3>Coach's toolbox</h3><p>Scoreboard for scrimmages, interval timer, stopwatch and a fair team splitter — all built in.</p></div>
+<div class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h3>🏀 Roster &amp; players</h3>
+      <p>Full player profiles — bilingual names, contacts, positions — with instant search and printable club-letterhead PDF lists.</p>
+      <span class="ar">قوائم اللاعبين وملفاتهم مع تصدير PDF بترويسة النادي</span>
+    </div>
+    <div class="card">
+      <h3>📋 Attendance</h3>
+      <p>Month grids, one-tap quick take, per-player statistics and summaries — for the whole team or any training group.</p>
+      <span class="ar">تسجيل الحضور وإحصاءاته للفريق والمجموعات</span>
+    </div>
+    <div class="card">
+      <h3>📝 Training &amp; play boards</h3>
+      <p>Weekly plans, a reusable drill library, and drawn plays on a real court — printed exactly as drawn.</p>
+      <span class="ar">الخطط الأسبوعية ومكتبة التمارين ولوحات الخطط</span>
+    </div>
+    <div class="card">
+      <h3>⭐ Evaluations &amp; growth</h3>
+      <p>Skill ratings with progress charts, height &amp; weight logs, and report cards ready to hand to parents.</p>
+      <span class="ar">تقييم المهارات وقياسات النمو مع تقارير جاهزة</span>
     </div>
   </div>
-</section>
 
-<!-- ================= SCREENS ================= -->
-<section class="screens">
-  <div class="wrap">
-    <div class="kicker">Straight from the app</div>
-    <h2>Made for the gym, not the office.</h2>
-    <div class="phones">
-      <figure class="phone">
-        <img src="img/attendance.png" alt="Quick attendance screen" width="250" height="500">
-        <figcaption>Quick attendance<span>a full squad in under a minute</span></figcaption>
-      </figure>
-      <figure class="phone">
-        <img src="img/playboard.png" alt="Play board with drawn play" width="250" height="500">
-        <figcaption>The play board<span>draw like on a whiteboard</span></figcaption>
-      </figure>
-      <figure class="phone">
-        <img src="img/chalkboard.png" alt="Chalkboard blank sheet" width="250" height="500">
-        <figcaption>Chalkboard sheets<span>blank paper, any color</span></figcaption>
-      </figure>
-    </div>
+  <div class="soon">
+    <b>Coming to Google Play.</b> Tactix is in its final testing stage — the app will be free to download,
+    with Tactix Premium unlocking the full coaching suite.
   </div>
-</section>
-
-<!-- ================= DOCUMENTS ================= -->
-<section>
-  <div class="wrap">
-    <div class="kicker">Print-ready</div>
-    <h2>Documents your club will be proud of.</h2>
-    <p class="lead">Every export is a real letterhead document — not a screenshot. Built page by page, previewed live, and tuned to your taste before it leaves the app.</p>
-    <div class="docs-flex">
-      <div class="doc"><img src="img/doc-roster.png" alt="Team roster PDF with bilingual table titles" loading="lazy"></div>
-      <ul class="doc-points">
-        <li><b>Letterhead designs</b> with your club name, colors and logo</li>
-        <li><b>14 main + 14 accent colors</b> to match any kit</li>
-        <li><b>Bilingual table titles</b> — English headers with Arabic (or any of 6 languages) beneath</li>
-        <li><b>Live preview</b> with text-size and margin controls</li>
-        <li><b>Training sheets print your drawn plays</b>, court and all</li>
-        <li>Rosters, attendance grids, summaries, evaluations, growth reports and match posters</li>
-      </ul>
-      <div class="doc"><img src="img/doc-training.png" alt="Training session PDF with drawn plays" loading="lazy"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PRICING ================= -->
-<section class="screens">
-  <div class="wrap">
-    <div class="kicker">Simple pricing</div>
-    <h2>Start free. Upgrade when your team grows.</h2>
-    <div class="plans">
-      <div class="plan">
-        <h3>Free</h3>
-        <div class="tagp">Everything you need to try it with a small squad</div>
-        <ul>
-          <li>1 team, up to 9 players</li>
-          <li>Attendance, calendar &amp; tools</li>
-          <li>Your first training sheet with play boards</li>
-          <li>Live document previews</li>
-        </ul>
-        <div class="price">Free forever</div>
-      </div>
-      <div class="plan pro">
-        <h3>Premium</h3>
-        <div class="tagp">The full coaching companion</div>
-        <ul>
-          <li>Unlimited players and teams</li>
-          <li>Player evaluations &amp; reports</li>
-          <li>All PDF exports, letterheads &amp; designs</li>
-          <li>Cloud backup — your data on every device</li>
-          <li>Full training suite &amp; drill library</li>
-        </ul>
-        <div class="price">Yearly subscription on Google Play</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LANGUAGES ================= -->
-<section>
-  <div class="wrap">
-    <div class="kicker">Speaks your language</div>
-    <h2>Six languages. True right-to-left.</h2>
-    <p class="lead">The whole app — and your printed documents — in the language your club speaks. Arabic flips the entire layout properly, and players can carry a second name in another script.</p>
-    <div class="langs">
-      <span class="lang">English</span><span class="lang">Français</span><span class="lang">Deutsch</span><span class="lang">Español</span><span class="lang">Srpski</span><span class="lang">العربية</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================= BETA ================= -->
-<section>
-  <div class="wrap">
-    <div class="beta-box">
-      <h2>Be one of the first coaches on Tactix.</h2>
-      <p>Tactix is in closed beta on Google Play. Send us your Google account email and we'll add you to the tester list — you get the full app, and your feedback shapes it.</p>
-      <div class="cta-row" style="justify-content:center; margin-top:22px">
-        <a class="btn" href="mailto:support@tactix-app.com?subject=Tactix%20beta%20invite&body=Hi!%20I%27d%20like%20to%20join%20the%20Tactix%20beta.%20My%20Google%20account%20email%20is:%20">Join the beta</a>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 <footer>
-  <div class="wrap">
-    <div class="links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="dpa.html">Data Processing Terms</a>
-      <a href="delete-account.html">Delete your account</a>
-      <a href="mailto:support@tactix-app.com">support@tactix-app.com</a>
-    </div>
-    Tactix — the coach's complete companion.
+  <div class="links">
+    <a href="privacy.html">Privacy Policy · سياسة الخصوصية</a>
+    <a href="dpa.html">Data Processing Terms · شروط معالجة البيانات</a>
+    <a href="delete-account.html">Delete account · حذف الحساب</a>
+    <a href="mailto:support@tactix-app.com">support@tactix-app.com</a>
   </div>
+  Tactix © 2026 · Mohamed Amine Aouichi
 </footer>
 
 </body>
