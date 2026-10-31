@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tactix — The Coach's Complete Companion · تاكتيكس</title>
-<meta name="description" content="Tactix — rosters, attendance, training plans, evaluations and professional PDF documents for basketball coaches. English & Arabic.">
+<meta name="description" content="Tactix — rosters, attendance, training plans, play boards, evaluations and club-letterhead PDFs for coaches across eleven sports. Works offline. Six languages.">
+<meta name="theme-color" content="#0e1728">
 <style>
   * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
     font-family: "Segoe UI", Tahoma, Arial, sans-serif;
     margin: 0;
@@ -14,86 +16,208 @@
     color: #eef2f8;
     line-height: 1.65;
   }
+
+  /* ── hero ─────────────────────────────────────────────────────────────── */
   .hero {
     text-align: center;
-    padding: 72px 20px 48px;
-    background: linear-gradient(180deg, #0a111f 0%, #0e1728 100%);
+    padding: 72px 20px 44px;
+    background:
+      radial-gradient(760px 320px at 50% -10%, rgba(79,134,207,0.16), transparent 62%),
+      linear-gradient(180deg, #0a111f 0%, #0e1728 100%);
   }
-  .brand { font-size: 54px; font-weight: 900; letter-spacing: 2px; color: #ffffff; }
+  .brand { font-size: 54px; font-weight: 900; letter-spacing: 2px; color: #ffffff; line-height: 1.05; }
   .brand .x { color: #e67e22; }
-  .tagline { font-size: 19px; color: rgba(255,255,255,0.85); margin-top: 10px; }
+  .tagline { font-size: 19px; color: rgba(255,255,255,0.88); margin-top: 12px; }
   .tagline-ar { font-size: 17px; color: rgba(255,255,255,0.7); margin-top: 6px; direction: rtl; }
   .rule { width: 64px; height: 4px; background: #e67e22; border-radius: 2px; margin: 26px auto 0; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 20px 30px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 38px 20px 10px; }
+
+  /* ── lede ─────────────────────────────────────────────────────────────── */
+  .lede {
+    max-width: 640px; margin: 0 auto 34px; text-align: center;
+    font-size: 16px; color: #b9c4d4;
+  }
+  .lede b { color: #eef2f8; font-weight: 600; }
+
+  /* ── sports strip ─────────────────────────────────────────────────────── */
+  .strip {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    max-width: 700px; margin: 0 auto 36px;
+  }
+  .sport {
+    font-size: 12.5px; font-weight: 600; color: #b9c4d4;
+    border: 1px solid #223148; background: #131f33;
+    border-radius: 999px; padding: 5px 13px; white-space: nowrap;
+  }
+  .sport.own { border-color: rgba(230,126,34,0.5); color: #f0b479; background: rgba(230,126,34,0.08); }
+
+  /* ── feature grid ─────────────────────────────────────────────────────── */
+  h2 {
+    font-size: 13px; letter-spacing: 2.4px; text-transform: uppercase;
+    color: #e67e22; text-align: center; margin: 0 0 18px; font-weight: 700;
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 16px; }
   .card {
-    background: #131f33;
-    border: 1px solid #223148;
-    border-radius: 14px;
-    padding: 20px;
+    background: #131f33; border: 1px solid #223148;
+    border-radius: 14px; padding: 20px;
   }
-  .card h3 { margin: 0 0 6px; font-size: 16px; color: #ffffff; }
+  .card h3 { margin: 0 0 7px; font-size: 16px; color: #ffffff; }
   .card p { margin: 0; font-size: 13.5px; color: #93a0b4; }
-  .card .ar { display: block; margin-top: 8px; direction: rtl; text-align: right; color: #7f8da3; font-size: 13px; }
-  .soon {
-    text-align: center;
-    margin: 40px auto 0;
-    max-width: 560px;
-    background: rgba(230,126,34,0.1);
-    border: 1px solid rgba(230,126,34,0.45);
-    border-radius: 12px;
-    padding: 14px 18px;
-    font-size: 14px;
-    color: #ffd9b3;
+  .card .ar {
+    display: block; margin-top: 9px; direction: rtl; text-align: right;
+    color: #7f8da3; font-size: 13px;
   }
+
+  /* ── two quiet claims ─────────────────────────────────────────────────── */
+  .claims { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 16px; }
+  .claim { border-left: 3px solid #4f86cf; padding: 4px 0 4px 14px; }
+  .claim.privacy { border-left-color: #3ecf7e; }
+  .claim h4 { margin: 0 0 4px; font-size: 14.5px; color: #ffffff; }
+  .claim p { margin: 0; font-size: 13px; color: #93a0b4; }
+
+  /* ── pricing ──────────────────────────────────────────────────────────── */
+  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .tier { background: #131f33; border: 1px solid #223148; border-radius: 14px; padding: 18px 20px; }
+  .tier.prem { border-color: rgba(230,126,34,0.45); background: rgba(230,126,34,0.06); }
+  .tier .name { font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #e67e22; font-weight: 700; }
+  .tier h3 { margin: 4px 0 8px; font-size: 17px; color: #ffffff; }
+  .tier ul { margin: 0; padding-left: 18px; color: #93a0b4; font-size: 13.5px; }
+  .tier li { margin-bottom: 4px; }
+
+  .soon {
+    text-align: center; margin: 36px auto 0; max-width: 580px;
+    background: rgba(230,126,34,0.1); border: 1px solid rgba(230,126,34,0.45);
+    border-radius: 12px; padding: 14px 18px; font-size: 14px; color: #ffd9b3;
+  }
+  .soon b { color: #ffffff; }
+
+  /* ── footer ───────────────────────────────────────────────────────────── */
   footer {
-    text-align: center;
-    padding: 34px 20px 44px;
-    color: #6b7684;
-    font-size: 13px;
-    border-top: 1px solid #1b2942;
-    margin-top: 44px;
+    text-align: center; padding: 34px 20px 44px; color: #6b7684; font-size: 13px;
+    border-top: 1px solid #1b2942; margin-top: 46px;
   }
   footer a { color: #e67e22; text-decoration: none; font-weight: 600; }
+  footer a:hover, footer a:focus-visible { text-decoration: underline; }
   footer .links { margin-bottom: 10px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+  @media (max-width: 420px) {
+    .brand { font-size: 42px; }
+    .tagline { font-size: 17px; }
+    .hero { padding: 54px 18px 36px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="hero">
   <div class="brand">TACTI<span class="x">X</span></div>
-  <div class="tagline">The basketball coach's complete companion.</div>
-  <div class="tagline-ar">رفيق مدرب كرة السلة الكامل — بالعربية والإنجليزية</div>
+  <div class="tagline">Everything a coach keeps on paper, in one app.</div>
+  <div class="tagline-ar">كل ما يكتبه المدرب على الورق، في تطبيق واحد</div>
   <div class="rule"></div>
 </div>
 
 <div class="wrap">
+
+  <p class="lede">Tactix holds a coach's whole season: the roster and parents' numbers, attendance
+  for every session, fixtures, training plans, player progress and fees — and turns any of it into
+  a <b>club-letterhead PDF</b>. It works <b>offline</b> at the court and speaks <b>six languages</b>.</p>
+
+  <div class="strip">
+    <span class="sport">Basketball</span>
+    <span class="sport">Football</span>
+    <span class="sport">Handball</span>
+    <span class="sport">Volleyball</span>
+    <span class="sport">Boxing</span>
+    <span class="sport">Judo</span>
+    <span class="sport">Fencing</span>
+    <span class="sport">Taekwondo</span>
+    <span class="sport">Karate</span>
+    <span class="sport">Athletics</span>
+    <span class="sport">Swimming</span>
+    <span class="sport own">+ or name your own sport</span>
+  </div>
+
+  <h2>What's inside</h2>
   <div class="grid">
     <div class="card">
-      <h3>🏀 Roster &amp; players</h3>
-      <p>Full player profiles — bilingual names, contacts, positions — with instant search and printable club-letterhead PDF lists.</p>
-      <span class="ar">قوائم اللاعبين وملفاتهم مع تصدير PDF بترويسة النادي</span>
+      <h3>Roster &amp; contacts</h3>
+      <p>Every player with bilingual names, positions you define yourself, and up to three phone
+      numbers — a parent is one tap from the list. Search, sort, and print on club letterhead.</p>
+      <span class="ar">قوائم اللاعبين بأسماء مزدوجة وأرقام التواصل، مع تصدير PDF</span>
     </div>
     <div class="card">
-      <h3>📋 Attendance</h3>
-      <p>Month grids, one-tap quick take, per-player statistics and summaries — for the whole team or any training group.</p>
-      <span class="ar">تسجيل الحضور وإحصاءاته للفريق والمجموعات</span>
+      <h3>Attendance</h3>
+      <p>A month grid, a one-tap quick take, training groups, game days, and per-player statistics
+      with streaks and monthly bars.</p>
+      <span class="ar">سجل الحضور الشهري والسريع مع إحصاءات لكل لاعب</span>
     </div>
     <div class="card">
-      <h3>📝 Training &amp; play boards</h3>
-      <p>Weekly plans, a reusable drill library, and drawn plays on a real court — printed exactly as drawn.</p>
-      <span class="ar">الخطط الأسبوعية ومكتبة التمارين ولوحات الخطط</span>
+      <h3>Calendar &amp; fixtures</h3>
+      <p>Games and training days on one month view, with upcoming and past lists and a countdown to
+      the next match on your home screen.</p>
+      <span class="ar">المباريات وأيام التدريب في تقويم واحد</span>
     </div>
     <div class="card">
-      <h3>⭐ Evaluations &amp; growth</h3>
-      <p>Skill ratings with progress charts, height &amp; weight logs, and report cards ready to hand to parents.</p>
-      <span class="ar">تقييم المهارات وقياسات النمو مع تقارير جاهزة</span>
+      <h3>Training &amp; play boards</h3>
+      <p>Weekly plans, sessions built from a reusable drill library, and plays drawn on your sport's
+      real court — printed exactly as you drew them.</p>
+      <span class="ar">خطط أسبوعية ومكتبة تمارين ولوحات رسم الخطط</span>
+    </div>
+    <div class="card">
+      <h3>Progress &amp; evaluations</h3>
+      <p>Technique checklists you can actually coach against — step by step, not a single score —
+      plus height and weight logs with growth charts, and reports for parents.</p>
+      <span class="ar">تقييم تقني خطوة بخطوة وقياسات النمو وتقارير لأولياء الأمور</span>
+    </div>
+    <div class="card">
+      <h3>Fees &amp; tools</h3>
+      <p>Optional fee collection for academies that charge, with receipts and real balances. Plus a
+      chronometer, interval timer, team splitter, scoreboard and announcement maker.</p>
+      <span class="ar">تحصيل الاشتراكات اختياريًا، وأدوات الملعب: مؤقّت ولوحة نتائج</span>
+    </div>
+  </div>
+
+  <div class="claims">
+    <div class="claim">
+      <h4>Built for a sports hall with no signal</h4>
+      <p>Every edit is saved on the phone first and synced when the connection returns. Nothing
+      waits for a network, and nothing is lost when there isn't one.</p>
+    </div>
+    <div class="claim privacy">
+      <h4>No ads, no analytics, no tracking</h4>
+      <p>This app holds data about children. There is no advertising and no tracking of any kind,
+      and a coach can delete their account and all of its data from inside the app.</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:42px">Free and Premium</h2>
+  <div class="tiers">
+    <div class="tier">
+      <div class="name">Free</div>
+      <h3>One team, nine players</h3>
+      <ul>
+        <li>Roster, attendance and calendar</li>
+        <li>Training plans and play boards</li>
+        <li>PDF exports on club letterhead</li>
+        <li>Works offline, in all six languages</li>
+      </ul>
+    </div>
+    <div class="tier prem">
+      <div class="name">Premium · yearly</div>
+      <h3>Every team, every player</h3>
+      <ul>
+        <li>Unlimited teams and players</li>
+        <li>Cloud backup and sync across devices</li>
+        <li>Player evaluations and growth tracking</li>
+        <li>Fee collection with receipts</li>
+      </ul>
     </div>
   </div>
 
   <div class="soon">
-    <b>Coming to Google Play.</b> Tactix is in its final testing stage — the app will be free to download,
-    with Tactix Premium unlocking the full coaching suite.
+    <b>Coming to Google Play.</b> Closed testing is complete and Tactix is being prepared for
+    release. The app will be free to download, with Premium unlocking the full coaching suite.
   </div>
 </div>
 
@@ -104,7 +228,7 @@
     <a href="delete-account.html">Delete account · حذف الحساب</a>
     <a href="mailto:support@tactix-app.com">support@tactix-app.com</a>
   </div>
-  Tactix © 2026 · Mohamed Amine Aouichi
+  Tactix © 2026
 </footer>
 
 </body>
