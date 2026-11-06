@@ -1,0 +1,5 @@
+# Drill share pages (/d/) are private links between coaches: keep them out of search.
+User-agent: *
+Disallow: /d/
+
+Sitemap: https://tactix-app.com/sitemap.xml
