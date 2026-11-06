@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drills shared with you · Tactix</title>
+<meta name="description" content="A coach shared training drills with you on Tactix. Open them in the app to get your own editable copy.">
+<meta name="theme-color" content="#0e1728">
+<meta name="robots" content="noindex">
+<style>
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    margin: 0; background: #0e1728; color: #eef2f8; line-height: 1.6;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 28px 16px 40px; }
+  .brand { font-size: 26px; font-weight: 900; letter-spacing: 1.5px; color: #fff; text-decoration: none; }
+  .brand .x { color: #e67e22; }
+  h1 { font-size: 24px; line-height: 1.3; margin: 22px 0 6px; }
+  .sub { color: #b9c4d4; margin: 0 0 22px; font-size: 15px; }
+  .btn {
+    display: block; text-align: center; text-decoration: none; font-weight: 700;
+    font-size: 16px; border-radius: 12px; padding: 14px 18px; margin: 0 0 12px;
+  }
+  .btn.main { background: #e67e22; color: #fff; }
+  .btn.ghost { border: 1px solid #2a3a55; color: #eef2f8; }
+  .code {
+    background: #131f33; border: 1px solid #223148; border-radius: 12px;
+    padding: 14px 16px; margin: 0 0 26px; font-size: 14px; color: #b9c4d4;
+  }
+  .code b { display: block; font-size: 26px; letter-spacing: 3px; color: #fff; margin-top: 4px; font-family: Consolas, Menlo, monospace; direction: ltr; text-align: start; }
+  .card {
+    background: #131f33; border: 1px solid #223148; border-radius: 14px;
+    padding: 16px; margin: 0 0 14px;
+  }
+  .card h2 { font-size: 18px; margin: 0; }
+  .min { color: #e67e22; font-weight: 700; font-size: 13px; }
+  .card p { color: #b9c4d4; margin: 8px 0 0; font-size: 14.5px; white-space: pre-line; }
+  .plate { background: #fff; border-radius: 10px; padding: 6px; margin-top: 12px; text-align: center; }
+  .plate img { max-width: 100%; max-height: 360px; display: inline-block; }
+  .get { margin-top: 30px; padding-top: 22px; border-top: 1px solid #223148; color: #b9c4d4; font-size: 14.5px; }
+  .get h3 { color: #eef2f8; font-size: 16px; margin: 0 0 8px; }
+  .get ol { padding-inline-start: 20px; margin: 8px 0 0; }
+  .get a { color: #f0b479; }
+  .msg { color: #b9c4d4; text-align: center; padding: 40px 0; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="/">TACTI<span class="x">X</span></a>
+
+  <p class="msg" id="loading">Loading…</p>
+  <p class="msg" id="missing" hidden></p>
+
+  <div id="share" hidden>
+    <h1 id="headline"></h1>
+    <p class="sub" id="lead"></p>
+    <a class="btn main" id="open" href="#"></a>
+    <div class="code"><span id="codeHint"></span><b id="code"></b></div>
+    <div id="drills"></div>
+  </div>
+
+  <div class="get" id="get">
+    <h3 id="getTitle"></h3>
+    <div id="getText"></div>
+  </div>
+</div>
+
+<!-- The app's own court drawing code (src/utils/courtSvg.ts, bundled with
+     esbuild), so a drill looks exactly as it does on the phone. -->
+<script src="court.js"></script>
+<script>
+(function () {
+  var PROJECT = 'coachmate-6f0fa';
+  var KEY = 'AIzaSyAQ_FRi9bmv1X2Gfj9evgaJT_oTf-dGVsQ';
+  var PKG = 'com.aouichi.tactix';
+  // Closed test: installing needs the tester group first. Swap for the store
+  // page (https://play.google.com/store/apps/details?id=…) after production.
+  var GROUP = 'https://groups.google.com/g/tactix-testers';
+  var OPTIN = 'https://play.google.com/apps/testing/' + PKG;
+
+  var ar = (navigator.language || '').toLowerCase().indexOf('ar') === 0;
+  var T = ar ? {
+    loading: 'جارٍ التحميل…',
+    one: 'أرسل لك {from} تمرينًا', two: 'أرسل لك {from} تمرينين', many: 'أرسل لك {from} {n} تمارين', many11: 'أرسل لك {from} {n} تمرينًا',
+    lead: 'افتحه في Tactix لتحصل على نسختك الخاصة، جاهزة للتعديل.',
+    open: 'فتح في Tactix',
+    codeHint: 'أو في Tactix: التدريب ← تكرار ← من مدرب آخر، وأدخل الرمز:',
+    min: 'د',
+    missing: 'لا توجد تمارين بهذا الرمز. ربما الرابط ناقص، أو مرّ عليه أكثر من 90 يومًا.',
+    getTitle: 'ليس لديك Tactix؟',
+    getText: 'Tactix في مرحلة الاختبار حاليًا. للانضمام:<ol><li>انضم إلى <a id="g1">مجموعة المختبرين</a> بحساب Google الخاص بك.</li><li>افتح <a id="g2">رابط الاختبار</a> واضغط «أصبح مختبِرًا»، ثم ثبّت التطبيق من Google Play.</li></ol>انتظر 5 إلى 10 دقائق إذا ظهر «التطبيق غير متاح»، ثم ارجع إلى هذه الصفحة.'
+  } : {
+    loading: 'Loading…',
+    one: '{from} sent you a drill', many: '{from} sent you {n} drills',
+    lead: 'Open it in Tactix to get your own copy, ready to edit.',
+    open: 'Open in Tactix',
+    codeHint: 'Or in Tactix, go to Training → Reuse → From another coach and enter:',
+    min: 'min',
+    missing: 'No drills found here. The link may be cut short, or older than 90 days.',
+    getTitle: 'Don’t have Tactix?',
+    getText: 'Tactix is in testing right now. To join:<ol><li>Join the <a id="g1">tester group</a> with your Google account.</li><li>Open the <a id="g2">testing link</a>, tap “Become a tester”, then install the app from Google Play.</li></ol>If Play says “App not available”, wait 5 to 10 minutes and try again. Then come back to this page.'
+  };
+  if (ar) { document.documentElement.lang = 'ar'; document.documentElement.dir = 'rtl'; }
+
+  var $ = function (id) { return document.getElementById(id); };
+  $('loading').textContent = T.loading;
+  $('getTitle').textContent = T.getTitle;
+  $('getText').innerHTML = T.getText; // our own fixed text, no share data
+  $('g1').href = GROUP; $('g2').href = OPTIN;
+
+  function fail() {
+    $('loading').hidden = true;
+    $('missing').textContent = T.missing;
+    $('missing').hidden = false;
+  }
+
+  var raw = (new URLSearchParams(location.search).get('c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  if (!/^[2-9A-HJKMNP-Z]{8}$/.test(raw)) return fail();
+  var code = raw;
+
+  // Firestore REST value → plain JS (only the shapes a share uses).
+  function val(v) {
+    if (!v) return undefined;
+    if ('stringValue' in v) return v.stringValue;
+    if ('integerValue' in v) return Number(v.integerValue);
+    return undefined;
+  }
+
+  fetch('https://firestore.googleapis.com/v1/projects/' + PROJECT +
+        '/databases/(default)/documents/sharedDrills/' + code + '?key=' + KEY)
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (docu) {
+      var f = docu.fields || {};
+      var from = String(val(f.from) || 'A coach');
+      var sport = String(val(f.sport) || 'custom');
+      var drills = JSON.parse(val(f.blob) || '[]');
+      if (!Array.isArray(drills) || !drills.length) return fail();
+
+      var n = drills.length;
+      $('headline').textContent = (n === 1 ? T.one : n === 2 && T.two ? T.two : n > 10 && T.many11 ? T.many11 : T.many)
+        .replace('{from}', from).replace('{n}', n);
+      $('lead').textContent = T.lead;
+      $('code').textContent = code.slice(0, 4) + '-' + code.slice(4);
+      $('codeHint').textContent = T.codeHint;
+
+      var path = 'training/received?c=' + code;
+      var open = $('open');
+      open.textContent = T.open;
+      // Android Chrome opens custom schemes through an intent URL; if the app
+      // is missing it falls back to the testing page instead of an error.
+      open.href = /android/i.test(navigator.userAgent)
+        ? 'intent://' + path + '#Intent;scheme=crkapp;package=' + PKG +
+          ';S.browser_fallback_url=' + encodeURIComponent(OPTIN) + ';end'
+        : 'crkapp://' + path;
+
+      var list = $('drills');
+      drills.forEach(function (ex) {
+        var card = document.createElement('div');
+        card.className = 'card';
+        var h = document.createElement('h2');
+        h.dir = 'auto';
+        h.textContent = ex.title || '—';
+        card.appendChild(h);
+        if (ex.minutes) {
+          var m = document.createElement('div');
+          m.className = 'min';
+          m.textContent = ex.minutes + ' ' + T.min;
+          card.appendChild(m);
+        }
+        if (ex.description) {
+          var p = document.createElement('p');
+          p.dir = 'auto';
+          p.textContent = ex.description;
+          card.appendChild(p);
+        }
+        (ex.drawings || []).forEach(function (d) {
+          if (!d || !Array.isArray(d.strokes) || !d.strokes.length) return;
+          try {
+            // As an <img>, never inline: a share is written by another phone,
+            // and a browser runs no script inside an image.
+            var svg = window.TactixCourt.drawingSvg(sport, d);
+            var plate = document.createElement('div');
+            plate.className = 'plate';
+            var img = document.createElement('img');
+            img.alt = ex.title || '';
+            img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+            plate.appendChild(img);
+            card.appendChild(plate);
+          } catch (e) { /* a drawing this page can't draw is skipped */ }
+        });
+        list.appendChild(card);
+      });
+
+      $('loading').hidden = true;
+      $('share').hidden = false;
+    })
+    .catch(fail);
+})();
+</script>
+</body>
+</html>
