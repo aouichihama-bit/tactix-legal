@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#0e1728">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -52,55 +52,90 @@
   .proofs span::before { content: "✓"; color: #3ecf7e; font-weight: 700; margin-right: 7px; }
 
   /* ── phone frame (screenshots and drawn screens share it) ────────────── */
-  .frame { width: 280px; flex: none; border-radius: 34px; border: 8px solid #1c2638; background: #0f1a2e; box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 0 1px #2a3650; overflow: hidden; }
+  .frame { width: 280px; flex: none; border-radius: 34px; border: 8px solid #1c2638; background: #0e1728; box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 0 1px #2a3650; overflow: hidden; }
   .frame > img { width: 100%; height: 520px; object-fit: cover; object-position: top; }
   .hero .frame { width: 300px; }
-  .hero .scr { height: 532px; }
+  .hero .scr { height: 556px; }
 
   /* drawn screen, styled like the app */
-  .scr { height: 520px; overflow: hidden; font-size: 13px; line-height: 1.35; color: #e8edf5; position: relative; }
-  .scr::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(180deg, rgba(15,26,46,0), #0f1a2e); }
-  .hd { background: linear-gradient(180deg, #1f3c6e, #142b52); padding: 14px 12px 12px; display: flex; align-items: center; gap: 8px; }
-  .hd .ic { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.55); flex: none; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #fff; font-family: Georgia, serif; font-style: italic; }
-  .hd .ic.back { font-family: inherit; font-style: normal; font-size: 16px; }
+  .scr { height: 520px; overflow: hidden; font-family: Barlow, "Segoe UI", sans-serif; font-size: 13px; line-height: 1.35; color: #eef2f7; background: #0e1728; position: relative; }
+  .scr::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(180deg, rgba(14,23,40,0), #0e1728); }
+  /* GlassHeader: flat navy, centred title, short orange bar, orange edge */
+  .hd { background: #121c31; border-bottom: 1px solid #e67e22; padding: 14px 12px 10px; display: flex; align-items: center; gap: 8px; }
+  .hd .ic { width: 32px; height: 32px; border-radius: 50%; background: rgba(0,0,0,0.28); border: 1px solid rgba(255,255,255,0.35); flex: none; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 300; line-height: 1; color: #fff; padding-bottom: 3px; }
+  .hd .ic.menu { font-size: 14px; padding: 0; }
+  .hd .ic.no { visibility: hidden; }
+  .hd .act { flex: none; width: 32px; text-align: right; color: #fff; font-weight: 600; font-size: 12.5px; }
   .hd .t { flex: 1; text-align: center; min-width: 0; }
-  .hd .t b { display: block; font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; font-size: 19px; line-height: 1.2; color: #fff; }
-  .hd .t span { font-size: 11px; color: #a9bad6; }
+  .hd .t b { display: block; font-family: Oswald, "Segoe UI", sans-serif; font-weight: 700; font-size: 19px; line-height: 1.2; color: #fff; letter-spacing: 0.3px; }
+  .hd .t b::after { content: ""; display: block; width: 20px; height: 2.5px; border-radius: 2px; background: #e67e22; margin: 4px auto 3px; }
+  .hd .t span { font-size: 11.5px; color: rgba(255,255,255,0.72); }
+  .hd.big { padding: 18px 12px 16px; }
+  .hd.big .t b { font-size: 24px; }
+  .hd.big .t b::after { width: 28px; height: 3px; }
   .bd { padding: 12px 10px; }
-  .c { background: #1a2843; border: 1px solid #2a3c5e; border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; }
-  .lb { font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; color: #8494ad; font-weight: 700; margin-bottom: 7px; }
+  .c { background: #1a2740; border: 1px solid #2e3e5e; border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; }
+  .lb { font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; color: #94a3ba; font-weight: 700; margin-bottom: 7px; }
   .os { font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; }
   .pill { background: rgba(230,126,34,0.16); color: #f0a35c; border-radius: 999px; padding: 2px 9px; font-size: 10px; font-weight: 800; letter-spacing: 1px; white-space: nowrap; }
   .spread { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 
   /* home */
-  .days { display: flex; justify-content: space-between; text-align: center; font-size: 10px; color: #8494ad; }
+  .days { display: flex; justify-content: space-between; text-align: center; font-size: 10px; color: #94a3ba; }
   .days > div { width: 30px; padding: 4px 0; border-radius: 9px; }
-  .days b { display: block; font-size: 13px; color: #e8edf5; }
+  .days b { display: block; font-size: 13px; color: #eef2f7; }
   .days .on { background: #e67e22; color: #fff; }
   .days .on b { color: #fff; }
   .dot { width: 5px; height: 5px; border-radius: 50%; margin: 3px auto 0; }
   .note { background: #f3e7b5; color: #3d3418; border-radius: 6px; padding: 8px 10px; font-size: 13px; }
-  .rec3 { display: flex; justify-content: space-around; text-align: center; font-size: 11px; color: #8494ad; }
-  .rec3 b { display: block; font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; font-size: 24px; line-height: 1.2; color: #e8edf5; }
+  .rec3 { display: flex; justify-content: space-around; text-align: center; font-size: 11px; color: #94a3ba; }
+  .rec3 b { display: block; font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; font-size: 24px; line-height: 1.2; color: #eef2f7; }
   .todo { display: flex; align-items: center; gap: 10px; }
   .todo .ck { width: 18px; height: 18px; border-radius: 5px; border: 2px solid #3a4c6b; flex: none; }
 
+  /* attendance */
+  .dnav { display: flex; align-items: center; justify-content: space-between; padding: 2px 6px 10px; }
+  .dnav i { color: #4f86cf; font-style: normal; font-size: 22px; line-height: 1; }
+  .dnav b { font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; font-size: 16px; }
+  .att-top { display: flex; gap: 8px; margin-bottom: 9px; }
+  .att-top .all { flex: 1; background: #1a2740; border: 1px solid #2e3e5e; border-radius: 10px; padding: 8px; text-align: center; font-weight: 600; font-size: 12.5px; }
+  .att-top .cnt { background: rgba(62,207,126,0.14); color: #3ecf7e; border-radius: 10px; padding: 8px 10px; font-weight: 700; font-size: 12.5px; }
+  .ar-row { display: flex; align-items: center; gap: 10px; padding: 7px 8px 7px 12px; margin-bottom: 6px; }
+  .ar-row .n { width: 20px; text-align: center; color: #4f86cf; font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; font-size: 15px; }
+  .ar-row .nm { flex: 1; min-width: 0; font-weight: 600; font-size: 13.5px; }
+  .pa { width: 30px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12.5px; border: 1.5px solid; }
+  .pa.p { border-color: #3ecf7e; color: #3ecf7e; }
+  .pa.p.on { background: #3ecf7e; color: #0e1728; }
+  .pa.a { border-color: #ef5b4c; color: #ef5b4c; }
+  .pa.a.on { background: #ef5b4c; color: #fff; }
+
+  /* play board */
+  .board { background: #fff; border-radius: 12px; padding: 6px; margin-bottom: 8px; }
+  .board img { width: 100%; height: auto; }
+  .hint { text-align: center; color: #94a3ba; font-size: 11px; margin-bottom: 9px; }
+  .tools { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 10px; }
+  .tool { background: #1a2740; border: 1px solid #2e3e5e; border-radius: 10px; height: 46px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 9.5px; color: #94a3ba; font-weight: 600; }
+  .tool svg { display: block; }
+  .tool.on { border-color: #e67e22; background: rgba(230,126,34,0.12); color: #f0a35c; }
+  .swatches { display: flex; justify-content: center; gap: 12px; }
+  .swatches span { width: 26px; height: 26px; border-radius: 50%; }
+  .swatches .on { box-shadow: 0 0 0 2px #0e1728, 0 0 0 4px #e67e22; }
+
   /* roster */
-  .search { background: #14213a; border: 1px solid #2a3c5e; border-radius: 10px; padding: 8px 12px; color: #6f7f98; margin-bottom: 8px; }
+  .search { background: #14203a; border: 1px solid #2e3e5e; border-radius: 10px; padding: 8px 12px; color: #6f7f98; margin-bottom: 8px; }
   .chips { display: flex; gap: 6px; margin-bottom: 9px; }
-  .chip { border: 1px solid #2a3c5e; border-radius: 999px; padding: 3px 11px; font-size: 11.5px; color: #b9c4d4; }
+  .chip { border: 1px solid #2e3e5e; border-radius: 999px; padding: 3px 11px; font-size: 11.5px; color: #b9c4d4; }
   .chip.on { background: #e67e22; border-color: #e67e22; color: #fff; font-weight: 700; }
   .pl { display: flex; align-items: center; gap: 10px; padding: 9px 12px; }
   .pl .n { width: 22px; text-align: center; color: #5b9bf0; font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; font-size: 16px; }
   .pl .nm { flex: 1; min-width: 0; }
   .pl .nm b { display: block; font-weight: 600; font-size: 13.5px; }
-  .pl .nm span { font-size: 11px; color: #8494ad; }
+  .pl .nm span { font-size: 11px; color: #94a3ba; }
   .call { width: 30px; height: 30px; border-radius: 50%; background: rgba(62,207,126,0.14); display: flex; align-items: center; justify-content: center; }
 
   /* calendar */
   .mon { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 11px; row-gap: 3px; }
-  .mon .h { color: #8494ad; font-size: 10px; font-weight: 700; }
+  .mon .h { color: #94a3ba; font-size: 10px; font-weight: 700; }
   .mon div { padding: 3px 0; }
   .mon .g { background: rgba(79,134,207,0.25); border-radius: 7px; color: #fff; font-weight: 700; }
   .mon .tr { position: relative; }
@@ -109,15 +144,15 @@
   .mon .x { color: #3b4a63; }
   .form { display: flex; gap: 5px; align-items: center; }
   .form span { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; color: #0e1728; }
-  .form .w { background: #3ecf7e; } .form .d { background: #93a0b4; } .form .l { background: #ff7b7b; }
+  .form .w { background: #3ecf7e; } .form .d { background: #93a0b4; } .form .l { background: #ef5b4c; }
   .gm { display: flex; align-items: center; gap: 10px; }
-  .gm .dt { width: 38px; text-align: center; line-height: 1.1; color: #8494ad; font-size: 10px; }
-  .gm .dt b { display: block; font-size: 16px; color: #e8edf5; font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; }
+  .gm .dt { width: 38px; text-align: center; line-height: 1.1; color: #94a3ba; font-size: 10px; }
+  .gm .dt b { display: block; font-size: 16px; color: #eef2f7; font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; }
   .gm .who { flex: 1; min-width: 0; }
   .gm .res { font-family: Oswald, "Segoe UI", sans-serif; font-weight: 600; font-size: 15px; }
 
   /* progress */
-  .bar { height: 7px; border-radius: 4px; background: #14213a; overflow: hidden; margin-top: 6px; }
+  .bar { height: 7px; border-radius: 4px; background: #14203a; overflow: hidden; margin-top: 6px; }
   .bar i { display: block; height: 100%; background: #4f86cf; }
   .stp { display: flex; align-items: center; gap: 10px; padding: 9px 12px; }
   .stp .bx { width: 20px; height: 20px; border-radius: 6px; border: 2px solid #3a4c6b; flex: none; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; }
@@ -133,7 +168,7 @@
   .fee .am { color: #b9c4d4; font-size: 12.5px; }
   .tag { font-size: 10px; font-weight: 800; letter-spacing: 0.8px; border-radius: 999px; padding: 3px 9px; }
   .tag.paid { background: rgba(62,207,126,0.15); color: #3ecf7e; }
-  .tag.due { background: rgba(255,123,123,0.15); color: #ff9b9b; }
+  .tag.due { background: rgba(239,91,76,0.16); color: #f58a7e; }
 
   /* ── feature rows ────────────────────────────────────────────────────── */
   .row { padding: 84px 0; }
@@ -236,10 +271,10 @@
 
     <!-- drawn Home screen -->
     <div class="frame" aria-hidden="true"><div class="scr">
-      <div class="hd"><span class="ic back">☰</span><div class="t"><b>Riverside Hawks</b><span>U13 · basketball · Coach Sam</span></div><span class="ic">i</span></div>
+      <div class="hd big"><span class="ic menu">☰</span><div class="t"><b>Riverside Hawks</b><span>U13 · basketball · Coach Sam</span></div><span class="ic no"></span></div>
       <div class="bd">
         <div class="c"><div class="lb">This week</div><div class="days"><div>Mo<b>9</b><div class="dot" style="background:#3ecf7e"></div></div><div>Tu<b>10</b></div><div class="on">We<b>11</b><div class="dot" style="background:#fff"></div></div><div>Th<b>12</b></div><div>Fr<b>13</b><div class="dot" style="background:#3ecf7e"></div></div><div>Sa<b>14</b><div class="dot" style="background:#4f86cf"></div></div><div>Su<b>15</b></div></div></div>
-        <div class="c"><div class="lb">Today</div><div class="spread"><div><b class="os" style="font-size:16px">Training · 18:00</b><div style="color:#8494ad;font-size:11.5px">Fast break and finishing · 75 min</div></div></div></div>
+        <div class="c"><div class="lb">Today</div><div class="spread"><div><b class="os" style="font-size:16px">Training · 18:00</b><div style="color:#94a3ba;font-size:11.5px">Fast break and finishing · 75 min</div></div></div></div>
         <div class="c"><div class="lb">Next game</div><div class="spread"><b style="font-size:14px">vs Northside · Sat 14</b><span class="pill">3 DAYS</span></div></div>
         <div class="c"><div class="lb">Coach's board</div><div class="note">Bring bibs on Saturday!</div></div>
         <div class="c"><div class="lb">Season</div><div class="rec3"><div><b style="color:#3ecf7e">7</b>Won</div><div><b>2</b>Drawn</div><div><b style="color:#ff7b7b">3</b>Lost</div></div></div>
@@ -262,7 +297,28 @@
           <li>Statistics for each player, with streaks and monthly bars</li>
         </ul>
       </div>
-      <div class="pic"><div class="frame"><img src="img/attendance.png" alt="Quick attendance screen: a list of players, each with a Present and an Absent button"></div></div>
+      <div class="pic">
+        <!-- drawn Quick attendance screen -->
+        <div class="frame" role="img" aria-label="Quick attendance screen: a list of players, each with a Present and an Absent button"><div class="scr">
+          <div class="hd"><span class="ic">‹</span><div class="t"><b>Quick attendance</b><span>Riverside Hawks</span></div><span class="ic no"></span></div>
+          <div class="bd">
+            <div class="dnav"><i>‹</i><b>Wednesday 11 November</b><i>›</i></div>
+            <div class="att-top"><span class="all">✓ Mark all present</span><span class="cnt">10/12 present</span></div>
+            <div class="c ar-row"><span class="n">7</span><span class="nm">Jack Turner</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">5</span><span class="nm">Omar Hassan</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">11</span><span class="nm">Liam Brooks</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">9</span><span class="nm">Adam Wright</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">3</span><span class="nm">Noah Reed</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">14</span><span class="nm">Ethan Cole</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">8</span><span class="nm">Ryan Fox</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">12</span><span class="nm">Karim Salem</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">6</span><span class="nm">Tom Hale</span><span class="pa p">P</span><span class="pa a on">A</span></div>
+            <div class="c ar-row"><span class="n">4</span><span class="nm">Sami Nasser</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">10</span><span class="nm">Leo Martin</span><span class="pa p on">P</span><span class="pa a">A</span></div>
+            <div class="c ar-row"><span class="n">2</span><span class="nm">Max Ellis</span><span class="pa p">P</span><span class="pa a on">A</span></div>
+          </div>
+        </div></div>
+      </div>
     </div>
   </section>
 
@@ -281,7 +337,7 @@
       <div class="pic">
         <!-- drawn Roster screen -->
         <div class="frame" aria-hidden="true"><div class="scr">
-          <div class="hd"><span class="ic back">‹</span><div class="t"><b>Roster</b><span>Riverside Hawks · 12 players</span></div><span class="ic">i</span></div>
+          <div class="hd"><span class="ic">‹</span><div class="t"><b>Roster</b><span>Riverside Hawks · 12 players</span></div><span class="ic no"></span></div>
           <div class="bd">
             <div class="search">Search players</div>
             <div class="chips"><span class="chip on">All 12</span><span class="chip">Group A</span><span class="chip">Group B</span></div>
@@ -310,7 +366,18 @@
           <li>Send drills to another coach with a private code</li>
         </ul>
       </div>
-      <div class="pic"><div class="frame"><img src="img/playboard.png" alt="Play board: a basketball court with arrows drawn on it and drawing tools below"></div></div>
+      <div class="pic">
+        <!-- drawn Play board screen; the court and play are drawn by the app's own code (img/play-basketball.svg) -->
+        <div class="frame" role="img" aria-label="Play board: a basketball court with a fast break drawn on it, and drawing tools below"><div class="scr">
+          <div class="hd"><span class="ic">‹</span><div class="t"><b>Plays</b><span>3 on 2 fast break</span></div><span class="act">Save</span></div>
+          <div class="bd">
+            <div class="board"><img src="img/play-basketball.svg" alt=""></div>
+            <div class="hint">Draw with finger or stylus · tap an arrow to edit its points</div>
+            <div class="tools"><div class="tool"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg>Pen</div><div class="tool on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M14 7l5 5-5 5"/></svg>Arrow</div><div class="tool"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h3M10 12h3M16 12h3M15 8l4 4-4 4"/></svg>Dashed</div><div class="tool"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l3-4 3 8 3-8 3 8 2-4h3M17 8l3 4-3 4"/></svg>Dribble</div><div class="tool"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V7M6 7h12"/></svg>Screen</div><div class="tool"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13M4 15h13M14 5l5 7-5 7"/></svg>Shot</div><div class="tool"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>X</div><div class="tool"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>O</div><div class="tool"><b style="font-family:Oswald,sans-serif;font-size:16px;line-height:18px">5</b>Number</div><div class="tool"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>Undo</div></div>
+            <div class="swatches"><span class="on" style="background:#2f6db8"></span><span style="background:#d4402f"></span><span style="background:#132036;border:1px solid #2e3e5e"></span><span style="background:#e67e22"></span></div>
+          </div>
+        </div></div>
+      </div>
     </div>
   </section>
 
@@ -329,7 +396,7 @@
       <div class="pic">
         <!-- drawn Calendar screen -->
         <div class="frame" aria-hidden="true"><div class="scr">
-          <div class="hd"><span class="ic back">‹</span><div class="t"><b>Calendar</b><span>November 2026</span></div><span class="ic">i</span></div>
+          <div class="hd"><span class="ic">‹</span><div class="t"><b>Calendar</b><span>November 2026</span></div><span class="ic no"></span></div>
           <div class="bd">
             <div class="c">
               <div class="mon">
@@ -343,11 +410,11 @@
             <div class="c">
               <div class="lb">Season record</div>
               <div class="rec3"><div><b style="color:#3ecf7e">7</b>Won</div><div><b>2</b>Drawn</div><div><b style="color:#ff7b7b">3</b>Lost</div></div>
-              <div class="spread" style="border-top:1px solid #2a3c5e;margin-top:8px;padding-top:8px;color:#b9c4d4;font-size:12px"><span>Scored <b style="color:#fff">612</b></span><span>Conceded <b style="color:#fff">548</b></span></div>
-              <div class="spread" style="margin-top:8px;font-size:12px;color:#8494ad"><span>Form</span><span class="form"><span class="w">W</span><span class="w">W</span><span class="l">L</span><span class="d">D</span><span class="w">W</span></span></div>
+              <div class="spread" style="border-top:1px solid #2e3e5e;margin-top:8px;padding-top:8px;color:#b9c4d4;font-size:12px"><span>Scored <b style="color:#fff">612</b></span><span>Conceded <b style="color:#fff">548</b></span></div>
+              <div class="spread" style="margin-top:8px;font-size:12px;color:#94a3ba"><span>Form</span><span class="form"><span class="w">W</span><span class="w">W</span><span class="l">L</span><span class="d">D</span><span class="w">W</span></span></div>
             </div>
-            <div class="c gm"><div class="dt">SAT<b>14</b></div><div class="who"><b>vs Northside</b><div style="color:#8494ad;font-size:11px">Home · 10:30</div></div><span class="pill">3 DAYS</span></div>
-            <div class="c gm"><div class="dt">SAT<b>7</b></div><div class="who"><b>at Lakeside</b><div style="color:#8494ad;font-size:11px">Away</div></div><span class="res" style="color:#3ecf7e">58–51</span></div>
+            <div class="c gm"><div class="dt">SAT<b>14</b></div><div class="who"><b>vs Northside</b><div style="color:#94a3ba;font-size:11px">Home · 10:30</div></div><span class="pill">3 DAYS</span></div>
+            <div class="c gm"><div class="dt">SAT<b>7</b></div><div class="who"><b>at Lakeside</b><div style="color:#94a3ba;font-size:11px">Away</div></div><span class="res" style="color:#3ecf7e">58–51</span></div>
           </div>
         </div></div>
       </div>
@@ -369,7 +436,7 @@
       <div class="pic">
         <!-- drawn Evaluation screen -->
         <div class="frame" aria-hidden="true"><div class="scr">
-          <div class="hd"><span class="ic back">‹</span><div class="t"><b>Jump shot</b><span>Leo Martin · #10</span></div><span class="ic">i</span></div>
+          <div class="hd"><span class="ic">‹</span><div class="t"><b>Jump shot</b><span>Leo Martin · #10</span></div><span class="ic no"></span></div>
           <div class="bd">
             <div class="c"><div class="spread"><span style="font-size:12px;color:#b9c4d4">3 of 5 steps</span><b class="os" style="font-size:16px;color:#5b9bf0">60%</b></div><div class="bar"><i style="width:60%"></i></div></div>
             <div class="c stp done"><span class="bx ok">✓</span><span>Feet shoulder-width, toes to the rim</span></div>
@@ -380,10 +447,10 @@
             <div class="c">
               <div class="lb">Height · cm</div>
               <svg viewBox="0 0 240 70" width="100%" height="70" aria-hidden="true">
-                <line x1="0" y1="60" x2="240" y2="60" stroke="#2a3c5e"/>
+                <line x1="0" y1="60" x2="240" y2="60" stroke="#2e3e5e"/>
                 <polyline points="8,52 60,46 112,40 164,31 216,22" fill="none" stroke="#3ecf7e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <g fill="#3ecf7e"><circle cx="8" cy="52" r="3.5"/><circle cx="60" cy="46" r="3.5"/><circle cx="112" cy="40" r="3.5"/><circle cx="164" cy="31" r="3.5"/><circle cx="216" cy="22" r="3.5"/></g>
-                <text x="216" y="12" fill="#e8edf5" font-size="11" text-anchor="middle" font-family="Segoe UI, Arial">158</text>
+                <text x="216" y="12" fill="#eef2f7" font-size="11" text-anchor="middle" font-family="Segoe UI, Arial">158</text>
               </svg>
             </div>
           </div>
@@ -422,7 +489,7 @@
       <div class="pic">
         <!-- drawn Fees screen -->
         <div class="frame" aria-hidden="true"><div class="scr">
-          <div class="hd"><span class="ic back">‹</span><div class="t"><b>Fees</b><span>November 2026</span></div><span class="ic">i</span></div>
+          <div class="hd"><span class="ic">‹</span><div class="t"><b>Fees</b><span>November 2026</span></div><span class="ic no"></span></div>
           <div class="bd">
             <div class="sum">
               <div class="c"><div class="lb">Collected</div><b style="color:#3ecf7e">$360</b></div>
