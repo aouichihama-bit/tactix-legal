@@ -4,222 +4,432 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tactix — The Coach's Complete Companion · تاكتيكس</title>
-<meta name="description" content="Tactix — rosters, attendance, training plans, play boards, evaluations and club-letterhead PDFs for coaches across eleven sports. Works offline. Six languages.">
+<meta name="description" content="Tactix holds a coach's whole season: roster, attendance, training plans and play boards, fixtures, player progress, fees and club-letterhead PDFs. Twelve sports, six languages, works offline, no ads.">
 <meta name="theme-color" content="#0e1728">
 <style>
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
     font-family: "Segoe UI", Tahoma, Arial, sans-serif;
     margin: 0;
     background: #0e1728;
     color: #eef2f8;
-    line-height: 1.65;
+    line-height: 1.6;
   }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .in { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .eyebrow { color: #e67e22; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+  .muted { color: #b9c4d4; }
+  .ar { direction: rtl; unicode-bidi: isolate; color: #7f8da3; font-size: 15px; }
 
-  /* ── hero ─────────────────────────────────────────────────────────────── */
-  .hero {
-    text-align: center;
-    padding: 72px 20px 44px;
-    background:
-      radial-gradient(760px 320px at 50% -10%, rgba(79,134,207,0.16), transparent 62%),
-      linear-gradient(180deg, #0a111f 0%, #0e1728 100%);
-  }
-  .brand { font-size: 54px; font-weight: 900; letter-spacing: 2px; color: #ffffff; line-height: 1.05; }
-  .brand .x { color: #e67e22; }
-  .tagline { font-size: 19px; color: rgba(255,255,255,0.88); margin-top: 12px; }
-  .tagline-ar { font-size: 17px; color: rgba(255,255,255,0.7); margin-top: 6px; direction: rtl; }
-  .rule { width: 64px; height: 4px; background: #e67e22; border-radius: 2px; margin: 26px auto 0; }
+  /* ── nav ─────────────────────────────────────────────────────────────── */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(14,23,40,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid #16233a; }
+  nav .in { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-size: 24px; font-weight: 900; letter-spacing: 1.5px; text-decoration: none; color: #fff; }
+  .logo .x { color: #e67e22; }
+  nav .links { display: flex; gap: 28px; font-size: 15px; }
+  nav .links a { text-decoration: none; color: #b9c4d4; }
+  nav .links a:hover, nav .links a:focus-visible { color: #fff; }
 
-  .wrap { max-width: 880px; margin: 0 auto; padding: 38px 20px 10px; }
+  /* ── hero ────────────────────────────────────────────────────────────── */
+  .hero { background: radial-gradient(760px 420px at 78% 30%, rgba(79,134,207,0.22), transparent 65%); }
+  .hero .in { display: flex; align-items: center; gap: 64px; padding-top: 64px; padding-bottom: 88px; }
+  .hero .copy { flex: 1; min-width: 0; }
+  .status { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #ffd9b3; background: rgba(230,126,34,0.1); border: 1px solid rgba(230,126,34,0.4); border-radius: 999px; padding: 5px 14px; margin-bottom: 22px; }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: #e67e22; display: block; }
+  h1 { font-size: 60px; line-height: 1.04; margin: 14px 0 18px; letter-spacing: -0.5px; }
+  .hero p.lead { font-size: 19px; max-width: 500px; margin: 0 0 30px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-block; text-decoration: none; font-weight: 700; font-size: 16px; border-radius: 12px; padding: 14px 24px; }
+  .btn.a { background: #e67e22; color: #fff; }
+  .btn.a:hover, .btn.a:focus-visible { background: #f08c33; }
+  .btn.b { border: 1px solid #2c3d5a; color: #dfe6f0; }
+  .btn.b:hover, .btn.b:focus-visible { border-color: #4f86cf; }
+  .proofs { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 28px; color: #93a0b4; font-size: 14px; }
+  .proofs span::before { content: "✓"; color: #3ecf7e; font-weight: 700; margin-right: 7px; }
+  .hero .ar { margin-top: 22px; }
 
-  /* ── lede ─────────────────────────────────────────────────────────────── */
-  .lede {
-    max-width: 640px; margin: 0 auto 34px; text-align: center;
-    font-size: 16px; color: #b9c4d4;
-  }
-  .lede b { color: #eef2f8; font-weight: 600; }
+  /* the phone (drawn, not a screenshot) */
+  .phone { width: 290px; flex: none; transform: rotate(3deg); background: #0b1220; border: 9px solid #1c2638; border-radius: 40px; padding: 16px 13px 12px; box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px #2a3650; }
+  .phone .top { background: linear-gradient(180deg, #1d3a6b, #142a50); border-radius: 18px; padding: 13px 14px; margin-bottom: 10px; }
+  .phone .top b { display: block; font-size: 16px; }
+  .phone .top span { font-size: 12px; color: #a9bad6; }
+  .phone .cd { background: #172238; border: 1px solid #243350; border-radius: 14px; padding: 10px 12px; margin-bottom: 9px; font-size: 13px; }
+  .phone .lb { font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; color: #7f8da3; font-weight: 700; margin-bottom: 6px; }
+  .days { display: flex; justify-content: space-between; text-align: center; font-size: 10px; color: #7f8da3; }
+  .days > div { width: 30px; padding: 4px 0; border-radius: 9px; }
+  .days b { display: block; font-size: 13px; color: #dfe6f0; }
+  .days .on { background: #e67e22; color: #fff; }
+  .days .on b { color: #fff; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; margin: 3px auto 0; }
+  .match { display: flex; justify-content: space-between; align-items: center; }
+  .pill { background: rgba(230,126,34,0.16); color: #f0a35c; border-radius: 999px; padding: 2px 9px; font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+  .note { background: #f3e7b5; color: #3d3418; border-radius: 6px; padding: 7px 9px; font-size: 13px; transform: rotate(-1deg); }
+  .rec { display: flex; justify-content: space-around; text-align: center; font-size: 11px; color: #7f8da3; }
+  .rec b { display: block; font-size: 20px; color: #eef2f8; }
 
-  /* ── sports strip ─────────────────────────────────────────────────────── */
-  .strip {
-    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-    max-width: 700px; margin: 0 auto 36px;
-  }
-  .sport {
-    font-size: 12.5px; font-weight: 600; color: #b9c4d4;
-    border: 1px solid #223148; background: #131f33;
-    border-radius: 999px; padding: 5px 13px; white-space: nowrap;
-  }
+  /* ── feature rows ────────────────────────────────────────────────────── */
+  .row { padding: 84px 0; }
+  .row:nth-of-type(even) { background: #0b1426; }
+  .row .in { display: flex; align-items: center; gap: 72px; }
+  .row.flip .in { flex-direction: row-reverse; }
+  .row .text { flex: 1; min-width: 0; }
+  .row h2 { font-size: 36px; line-height: 1.15; margin: 10px 0 14px; }
+  .row p { font-size: 17px; margin: 0 0 14px; max-width: 480px; }
+  .row .ar { max-width: 480px; }
+  .row ul { margin: 0 0 16px; padding: 0; list-style: none; max-width: 480px; }
+  .row li { position: relative; padding-left: 22px; margin-bottom: 7px; color: #b9c4d4; font-size: 15.5px; }
+  .row li::before { content: ""; position: absolute; left: 3px; top: 10px; width: 7px; height: 7px; border-radius: 2px; background: #4f86cf; }
+  .row .pic { flex: 1; min-width: 0; display: flex; justify-content: center; }
+  .shot { width: 280px; border-radius: 30px; border: 8px solid #1c2638; box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 0 1px #2a3650; overflow: hidden; }
+  .shot img { width: 100%; height: 470px; object-fit: cover; object-position: top; }
+  .paper { width: 360px; border-radius: 6px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.45); transform: rotate(-2deg); }
+  .paper img { width: 100%; height: 460px; object-fit: cover; object-position: top; }
+
+  /* drawn cards for rows without a screenshot */
+  .panel { width: 100%; max-width: 420px; background: #131f33; border: 1px solid #223148; border-radius: 20px; padding: 22px; box-shadow: 0 30px 60px rgba(0,0,0,0.35); }
+  .panel .lb { font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: #7f8da3; font-weight: 700; margin-bottom: 12px; }
+  .wdl { display: flex; justify-content: space-around; text-align: center; color: #7f8da3; font-size: 13px; margin-bottom: 16px; }
+  .wdl b { display: block; font-size: 34px; line-height: 1.1; color: #eef2f8; }
+  .score { display: flex; justify-content: space-between; border-top: 1px solid #223148; padding-top: 12px; font-size: 14px; color: #b9c4d4; }
+  .form { display: flex; gap: 6px; margin-top: 12px; align-items: center; font-size: 13px; color: #7f8da3; }
+  .form span { width: 26px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: #0e1728; }
+  .form .w { background: #3ecf7e; } .form .d { background: #93a0b4; } .form .l { background: #ff7b7b; }
+  .next { margin-top: 16px; display: flex; justify-content: space-between; align-items: center; background: #172238; border: 1px solid #243350; border-radius: 12px; padding: 11px 14px; font-size: 14px; }
+  .step { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #1d2b44; font-size: 15px; }
+  .step:last-of-type { border-bottom: 0; }
+  .box { width: 22px; height: 22px; border-radius: 6px; border: 2px solid #3a4c6b; flex: none; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; }
+  .box.ok { background: #3ecf7e; border-color: #3ecf7e; color: #0e1728; }
+  .bar { height: 8px; border-radius: 4px; background: #1d2b44; margin-top: 14px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 60%; background: #4f86cf; }
+  .fee { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #1d2b44; font-size: 15px; }
+  .fee:last-child { border-bottom: 0; }
+  .tag { font-size: 11px; font-weight: 800; letter-spacing: 0.8px; border-radius: 999px; padding: 3px 10px; }
+  .tag.paid { background: rgba(62,207,126,0.15); color: #3ecf7e; }
+  .tag.due { background: rgba(255,123,123,0.15); color: #ff9b9b; }
+
+  /* ── sports ──────────────────────────────────────────────────────────── */
+  .center { text-align: center; }
+  .sec { padding: 84px 0; }
+  .sec h2 { font-size: 36px; line-height: 1.15; margin: 10px 0 12px; }
+  .sec .sub { max-width: 620px; margin: 0 auto 36px; font-size: 17px; }
+  .sports { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .sport { background: #131f33; border: 1px solid #223148; border-radius: 14px; padding: 18px 10px; text-align: center; font-weight: 600; font-size: 15px; color: #dfe6f0; }
   .sport.own { border-color: rgba(230,126,34,0.5); color: #f0b479; background: rgba(230,126,34,0.08); }
 
-  /* ── feature grid ─────────────────────────────────────────────────────── */
-  h2 {
-    font-size: 13px; letter-spacing: 2.4px; text-transform: uppercase;
-    color: #e67e22; text-align: center; margin: 0 0 18px; font-weight: 700;
-  }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: 16px; }
-  .card {
-    background: #131f33; border: 1px solid #223148;
-    border-radius: 14px; padding: 20px;
-  }
-  .card h3 { margin: 0 0 7px; font-size: 16px; color: #ffffff; }
-  .card p { margin: 0; font-size: 13.5px; color: #93a0b4; }
-  .card .ar {
-    display: block; margin-top: 9px; direction: rtl; text-align: right;
-    color: #7f8da3; font-size: 13px;
-  }
-
-  /* ── two quiet claims ─────────────────────────────────────────────────── */
-  .claims { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 16px; }
-  .claim { border-left: 3px solid #4f86cf; padding: 4px 0 4px 14px; }
-  .claim.privacy { border-left-color: #3ecf7e; }
-  .claim h4 { margin: 0 0 4px; font-size: 14.5px; color: #ffffff; }
-  .claim p { margin: 0; font-size: 13px; color: #93a0b4; }
-
-  /* ── pricing ──────────────────────────────────────────────────────────── */
-  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-  .tier { background: #131f33; border: 1px solid #223148; border-radius: 14px; padding: 18px 20px; }
-  .tier.prem { border-color: rgba(230,126,34,0.45); background: rgba(230,126,34,0.06); }
+  /* ── pricing ─────────────────────────────────────────────────────────── */
+  .tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 820px; margin: 0 auto; text-align: left; }
+  .tier { background: #131f33; border: 1px solid #223148; border-radius: 18px; padding: 26px 28px; }
+  .tier.prem { border-color: rgba(230,126,34,0.5); background: rgba(230,126,34,0.06); }
   .tier .name { font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #e67e22; font-weight: 700; }
-  .tier h3 { margin: 4px 0 8px; font-size: 17px; color: #ffffff; }
-  .tier ul { margin: 0; padding-left: 18px; color: #93a0b4; font-size: 13.5px; }
-  .tier li { margin-bottom: 4px; }
+  .tier h3 { margin: 6px 0 12px; font-size: 22px; }
+  .tier ul { margin: 0; padding-left: 18px; color: #b9c4d4; font-size: 15px; }
+  .tier li { margin-bottom: 6px; }
 
-  .soon {
-    text-align: center; margin: 36px auto 0; max-width: 580px;
-    background: rgba(230,126,34,0.1); border: 1px solid rgba(230,126,34,0.45);
-    border-radius: 12px; padding: 14px 18px; font-size: 14px; color: #ffd9b3;
-  }
-  .soon b { color: #ffffff; }
+  /* ── trust ───────────────────────────────────────────────────────────── */
+  .claims { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .claim { border-left: 3px solid #4f86cf; padding: 6px 0 6px 18px; }
+  .claim.privacy { border-left-color: #3ecf7e; }
+  .claim h3 { margin: 0 0 6px; font-size: 19px; }
+  .claim p { margin: 0; font-size: 15px; color: #b9c4d4; }
 
-  /* ── footer ───────────────────────────────────────────────────────────── */
-  footer {
-    text-align: center; padding: 34px 20px 44px; color: #6b7684; font-size: 13px;
-    border-top: 1px solid #1b2942; margin-top: 46px;
-  }
+  .soon { text-align: center; margin: 56px auto 0; max-width: 640px; background: rgba(230,126,34,0.1); border: 1px solid rgba(230,126,34,0.45); border-radius: 14px; padding: 18px 22px; font-size: 15.5px; color: #ffd9b3; }
+  .soon b { color: #fff; }
+
+  /* ── footer ──────────────────────────────────────────────────────────── */
+  footer { text-align: center; padding: 36px 20px 46px; color: #6b7684; font-size: 13px; border-top: 1px solid #1b2942; }
   footer a { color: #e67e22; text-decoration: none; font-weight: 600; }
   footer a:hover, footer a:focus-visible { text-decoration: underline; }
-  footer .links { margin-bottom: 10px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+  footer .links { margin-bottom: 12px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
 
-  @media (max-width: 420px) {
-    .brand { font-size: 42px; }
-    .tagline { font-size: 17px; }
-    .hero { padding: 54px 18px 36px; }
+  /* ── smaller screens ─────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero .in, .row .in, .row.flip .in { flex-direction: column; gap: 44px; }
+    .hero .in { padding-top: 40px; padding-bottom: 64px; }
+    h1 { font-size: 46px; }
+    .row { padding: 60px 0; }
+    .row h2, .sec h2 { font-size: 30px; }
+    .sports { grid-template-columns: repeat(3, 1fr); }
+    .tiers, .claims { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .in { padding: 0 16px; }
+    nav .links { display: none; }
+    h1 { font-size: 38px; }
+    .hero p.lead { font-size: 17px; }
+    .phone { width: 260px; transform: rotate(2deg); }
+    .sports { grid-template-columns: repeat(2, 1fr); }
+    .paper { width: 100%; max-width: 330px; }
+    .paper img { height: 400px; }
+    .shot { width: 260px; }
+    .shot img { height: 440px; }
   }
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <div class="brand">TACTI<span class="x">X</span></div>
-  <div class="tagline">Everything a coach keeps on paper, in one app.</div>
-  <div class="tagline-ar">كل ما يكتبه المدرب على الورق، في تطبيق واحد</div>
-  <div class="rule"></div>
-</div>
-
-<div class="wrap">
-
-  <p class="lede">Tactix holds a coach's whole season: the roster and parents' numbers, attendance
-  for every session, fixtures, training plans, player progress and fees — and turns any of it into
-  a <b>club-letterhead PDF</b>. It works <b>offline</b> at the court and speaks <b>six languages</b>.</p>
-
-  <div class="strip">
-    <span class="sport">Basketball</span>
-    <span class="sport">Football</span>
-    <span class="sport">Handball</span>
-    <span class="sport">Volleyball</span>
-    <span class="sport">Boxing</span>
-    <span class="sport">Judo</span>
-    <span class="sport">Fencing</span>
-    <span class="sport">Taekwondo</span>
-    <span class="sport">Karate</span>
-    <span class="sport">Athletics</span>
-    <span class="sport">Swimming</span>
-    <span class="sport own">+ or name your own sport</span>
-  </div>
-
-  <h2>What's inside</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Roster &amp; contacts</h3>
-      <p>Every player with bilingual names, positions you define yourself, and up to three phone
-      numbers — a parent is one tap from the list. Search, sort, and print on club letterhead.</p>
-      <span class="ar">قوائم اللاعبين بأسماء مزدوجة وأرقام التواصل، مع تصدير PDF</span>
-    </div>
-    <div class="card">
-      <h3>Attendance</h3>
-      <p>A month grid, a one-tap quick take, training groups, game days, and per-player statistics
-      with streaks and monthly bars.</p>
-      <span class="ar">سجل الحضور الشهري والسريع مع إحصاءات لكل لاعب</span>
-    </div>
-    <div class="card">
-      <h3>Calendar &amp; fixtures</h3>
-      <p>Games and training days on one month view, with upcoming and past lists and a countdown to
-      the next match on your home screen.</p>
-      <span class="ar">المباريات وأيام التدريب في تقويم واحد</span>
-    </div>
-    <div class="card">
-      <h3>Training &amp; play boards</h3>
-      <p>Weekly plans, sessions built from a reusable drill library, and plays drawn on your sport's
-      real court — printed exactly as you drew them.</p>
-      <span class="ar">خطط أسبوعية ومكتبة تمارين ولوحات رسم الخطط</span>
-    </div>
-    <div class="card">
-      <h3>Progress &amp; evaluations</h3>
-      <p>Technique checklists you can actually coach against — step by step, not a single score —
-      plus height and weight logs with growth charts, and reports for parents.</p>
-      <span class="ar">تقييم تقني خطوة بخطوة وقياسات النمو وتقارير لأولياء الأمور</span>
-    </div>
-    <div class="card">
-      <h3>Fees &amp; tools</h3>
-      <p>Optional fee collection for academies that charge, with receipts and real balances. Plus a
-      chronometer, interval timer, team splitter, scoreboard and announcement maker.</p>
-      <span class="ar">تحصيل الاشتراكات اختياريًا، وأدوات الملعب: مؤقّت ولوحة نتائج</span>
+<nav>
+  <div class="in">
+    <a class="logo" href="#top" aria-label="Tactix">TACTI<span class="x">X</span></a>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#sports">Sports</a>
+      <a href="#pricing">Pricing</a>
+      <a href="privacy.html">Privacy</a>
     </div>
   </div>
+</nav>
 
-  <div class="claims">
-    <div class="claim">
-      <h4>Built for a sports hall with no signal</h4>
-      <p>Every edit is saved on the phone first and synced when the connection returns. Nothing
-      waits for a network, and nothing is lost when there isn't one.</p>
+<header class="hero" id="top">
+  <div class="in">
+    <div class="copy">
+      <div class="status"><i></i>In closed testing on Google Play</div>
+      <div class="eyebrow">For coaches of any sport</div>
+      <h1>Your whole season.<br>One app.</h1>
+      <p class="lead muted">Roster, attendance, training plans, fixtures, player progress and fees, on your phone at the court, even with no signal.</p>
+      <div class="btns">
+        <a class="btn a" href="#features">See what's inside</a>
+        <a class="btn b" href="#pricing">Free and Premium</a>
+      </div>
+      <div class="proofs"><span>No ads</span><span>Works offline</span><span>6 languages</span><span>12 sports</span></div>
+      <div class="ar">كل ما يكتبه المدرب على الورق، في تطبيق واحد</div>
     </div>
-    <div class="claim privacy">
-      <h4>No ads, no analytics, no tracking</h4>
-      <p>This app holds data about children. There is no advertising and no tracking of any kind,
-      and a coach can delete their account and all of its data from inside the app.</p>
+    <div class="phone" aria-hidden="true">
+      <div class="top"><b>Riverside Hawks U13</b><span>Coach Sam · basketball</span></div>
+      <div class="cd"><div class="lb">This week</div><div class="days"><div>Mo<b>10</b><div class="dot" style="background:#3ecf7e"></div></div><div>Tu<b>11</b></div><div class="on">We<b>12</b><div class="dot" style="background:#fff"></div></div><div>Th<b>13</b></div><div>Fr<b>14</b><div class="dot" style="background:#3ecf7e"></div></div><div>Sa<b>15</b><div class="dot" style="background:#4f86cf"></div></div><div>Su<b>16</b></div></div></div>
+      <div class="cd match"><span>vs Northside · Sat</span><span class="pill">3 DAYS</span></div>
+      <div class="cd"><div class="lb">Coach's board</div><div class="note">Bring bibs on Saturday!</div></div>
+      <div class="cd"><div class="lb">Season</div><div class="rec"><div><b style="color:#3ecf7e">7</b>Won</div><div><b>2</b>Drawn</div><div><b style="color:#ff7b7b">3</b>Lost</div></div></div>
     </div>
   </div>
+</header>
 
-  <h2 style="margin-top:42px">Free and Premium</h2>
-  <div class="tiers">
-    <div class="tier">
-      <div class="name">Free</div>
-      <h3>One team, nine players</h3>
-      <ul>
-        <li>Roster, attendance and calendar</li>
-        <li>Training plans and play boards</li>
-        <li>PDF exports on club letterhead</li>
-        <li>Works offline, in all six languages</li>
-      </ul>
+<main id="features">
+
+  <section class="row">
+    <div class="in">
+      <div class="text">
+        <div class="eyebrow">Attendance</div>
+        <h2>Who came today? Ten seconds.</h2>
+        <p class="muted">Tap the players who are here. Over the season you see who comes every week and who is drifting away, before they quit.</p>
+        <ul>
+          <li>Quick take for today, or a month grid for the whole squad</li>
+          <li>Training groups and game days</li>
+          <li>Statistics for each player, with streaks and monthly bars</li>
+        </ul>
+        <div class="ar">سجل الحضور الشهري والسريع مع إحصاءات لكل لاعب</div>
+      </div>
+      <div class="pic"><div class="shot"><img src="img/attendance.png" alt="Quick attendance screen: a list of players, each with a Present and an Absent button"></div></div>
     </div>
-    <div class="tier prem">
-      <div class="name">Premium · yearly</div>
-      <h3>Every team, every player</h3>
-      <ul>
-        <li>Unlimited teams and players</li>
-        <li>Cloud backup and sync across devices</li>
-        <li>Player evaluations and growth tracking</li>
-        <li>Fee collection with receipts</li>
-      </ul>
+  </section>
+
+  <section class="row flip">
+    <div class="in">
+      <div class="text">
+        <div class="eyebrow">Roster</div>
+        <h2>Your team, and every parent's number.</h2>
+        <p class="muted">Every player with up to three phone numbers, so a parent is one tap away. Names can be written in two languages, and positions are the ones you define.</p>
+        <ul>
+          <li>Add players one by one, or paste a whole list at once</li>
+          <li>Search, sort and split the squad into groups</li>
+          <li>Print the roster on your club's letterhead</li>
+        </ul>
+        <div class="ar">قوائم اللاعبين بأسماء مزدوجة وأرقام التواصل، مع تصدير PDF</div>
+      </div>
+      <div class="pic">
+        <div class="panel" aria-hidden="true">
+          <div class="lb">Riverside Hawks U13 · 12 players</div>
+          <div class="step"><span class="box" style="border-color:#4f86cf;color:#4f86cf">7</span>Adam Hayes<span style="margin-left:auto;color:#7f8da3;font-size:13px">Guard</span></div>
+          <div class="step"><span class="box" style="border-color:#4f86cf;color:#4f86cf">10</span>Leo Martin<span style="margin-left:auto;color:#7f8da3;font-size:13px">Forward</span></div>
+          <div class="step"><span class="box" style="border-color:#4f86cf;color:#4f86cf">4</span>Omar Khalil<span style="margin-left:auto;color:#7f8da3;font-size:13px">Centre</span></div>
+          <div class="step"><span class="box" style="border-color:#4f86cf;color:#4f86cf">12</span>Sami Nasser<span style="margin-left:auto;color:#7f8da3;font-size:13px">Guard</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="in">
+      <div class="text">
+        <div class="eyebrow">Training</div>
+        <h2>Plan the week. Draw the play.</h2>
+        <p class="muted">Build sessions from your own drill library, and draw plays on your sport's real court with arrows, dribbles and screens.</p>
+        <ul>
+          <li>Starter drills for every sport to begin with</li>
+          <li>Weekly plans and session sheets you can print</li>
+          <li>Send drills to another coach with a private code</li>
+        </ul>
+        <div class="ar">خطط أسبوعية ومكتبة تمارين ولوحات رسم الخطط</div>
+      </div>
+      <div class="pic"><div class="shot"><img src="img/playboard.png" alt="Play board: a basketball court with arrows drawn on it and drawing tools below"></div></div>
+    </div>
+  </section>
+
+  <section class="row flip">
+    <div class="in">
+      <div class="text">
+        <div class="eyebrow">Calendar &amp; record</div>
+        <h2>Every match, and how the season is going.</h2>
+        <p class="muted">Games and training days on one month view, with a countdown to the next match on your home screen. Enter the scores and Tactix keeps the record.</p>
+        <ul>
+          <li>Won, drawn and lost, scored and conceded</li>
+          <li>Form from the last five games</li>
+          <li>Upcoming and past fixtures in one list</li>
+        </ul>
+        <div class="ar">المباريات وأيام التدريب في تقويم واحد، مع سجل الموسم</div>
+      </div>
+      <div class="pic">
+        <div class="panel" aria-hidden="true">
+          <div class="lb">Season record</div>
+          <div class="wdl"><div><b style="color:#3ecf7e">7</b>Won</div><div><b>2</b>Drawn</div><div><b style="color:#ff7b7b">3</b>Lost</div></div>
+          <div class="score"><span>Scored <b style="color:#fff">612</b></span><span>Conceded <b style="color:#fff">548</b></span></div>
+          <div class="form">Form <span class="w">W</span><span class="w">W</span><span class="l">L</span><span class="d">D</span><span class="w">W</span></div>
+          <div class="next"><span>vs Northside · Sat 15</span><span class="pill">3 DAYS</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="in">
+      <div class="text">
+        <div class="eyebrow">Player progress</div>
+        <h2>Coach the steps, not a score.</h2>
+        <p class="muted">Technique checklists you can actually coach against, step by step. Log height and weight to see growth over time, and share a report with parents.</p>
+        <ul>
+          <li>Checklists for each skill, ticked as the player gets there</li>
+          <li>Growth charts from height and weight logs</li>
+          <li>Reports for parents as a PDF</li>
+        </ul>
+        <div class="ar">تقييم تقني خطوة بخطوة وقياسات النمو وتقارير لأولياء الأمور</div>
+      </div>
+      <div class="pic">
+        <div class="panel" aria-hidden="true">
+          <div class="lb">Leo Martin · Jump shot</div>
+          <div class="step"><span class="box ok">✓</span>Feet shoulder-width, toes to the rim</div>
+          <div class="step"><span class="box ok">✓</span>Elbow under the ball</div>
+          <div class="step"><span class="box ok">✓</span>Jump straight up, land in place</div>
+          <div class="step"><span class="box"></span>Hold the follow-through</div>
+          <div class="step"><span class="box"></span>Same release from the free-throw line</div>
+          <div class="bar"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row flip">
+    <div class="in">
+      <div class="text">
+        <div class="eyebrow">PDFs</div>
+        <h2>Print it on your club's letterhead.</h2>
+        <p class="muted">The roster, a training session, an attendance report or a player's progress becomes a clean PDF with your club's name and colours, ready to print or send.</p>
+        <ul>
+          <li>Plays print exactly as you drew them</li>
+          <li>Empty boxes for notes on the day</li>
+        </ul>
+        <div class="ar">تصدير PDF بشعار النادي وألوانه</div>
+      </div>
+      <div class="pic"><div class="paper"><img src="img/doc-training.png" alt="A printed training session sheet with two drills drawn on a basketball court"></div></div>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="in">
+      <div class="text">
+        <div class="eyebrow">Fees &amp; tools</div>
+        <h2>Who has paid, and the tools for the court.</h2>
+        <p class="muted">Fee collection is there for academies that charge, with receipts and real balances. Clubs that don't can leave it off.</p>
+        <ul>
+          <li>Receipts and a balance for each player</li>
+          <li>Chronometer, interval timer and scoreboard</li>
+          <li>Team splitter and announcement maker</li>
+        </ul>
+        <div class="ar">تحصيل الاشتراكات اختياريًا، وأدوات الملعب: مؤقّت ولوحة نتائج</div>
+      </div>
+      <div class="pic">
+        <div class="panel" aria-hidden="true">
+          <div class="lb">November fees</div>
+          <div class="fee"><span>Adam Hayes</span><span class="tag paid">PAID</span></div>
+          <div class="fee"><span>Leo Martin</span><span class="tag paid">PAID</span></div>
+          <div class="fee"><span>Omar Khalil</span><span class="tag due">DUE</span></div>
+          <div class="fee"><span>Sami Nasser</span><span class="tag paid">PAID</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="sec center" id="sports">
+  <div class="in">
+    <div class="eyebrow">Sports</div>
+    <h2>Made for your sport.</h2>
+    <p class="sub muted">Each sport comes with its own starter drills, and team sports draw plays on their real court or field. Coaching something else? Name your own sport.</p>
+    <div class="sports">
+      <div class="sport">Football</div>
+      <div class="sport">Basketball</div>
+      <div class="sport">Volleyball</div>
+      <div class="sport">Handball</div>
+      <div class="sport">Athletics</div>
+      <div class="sport">Swimming</div>
+      <div class="sport">Boxing</div>
+      <div class="sport">Judo</div>
+      <div class="sport">Fencing</div>
+      <div class="sport">Taekwondo</div>
+      <div class="sport">Karate</div>
+      <div class="sport own">+ Your own</div>
     </div>
   </div>
+</section>
 
-  <div class="soon">
-    <b>Coming to Google Play.</b> Closed testing is complete and Tactix is being prepared for
-    release. The app will be free to download, with Premium unlocking the full coaching suite.
+<section class="sec center" id="pricing" style="background:#0b1426">
+  <div class="in">
+    <div class="eyebrow">Pricing</div>
+    <h2>Free to start.</h2>
+    <p class="sub muted">One team with nine players is free, for as long as you like. Premium is for coaches with more.</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="name">Free</div>
+        <h3>One team, nine players</h3>
+        <ul>
+          <li>Roster, attendance and calendar</li>
+          <li>Training plans and play boards</li>
+          <li>PDF exports on club letterhead</li>
+          <li>Works offline, in all six languages</li>
+        </ul>
+      </div>
+      <div class="tier prem">
+        <div class="name">Premium · yearly</div>
+        <h3>Every team, every player</h3>
+        <ul>
+          <li>Unlimited teams and players</li>
+          <li>Cloud backup and sync across devices</li>
+          <li>Player evaluations and growth tracking</li>
+          <li>Fee collection with receipts</li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+<section class="sec">
+  <div class="in">
+    <div class="claims">
+      <div class="claim">
+        <h3>Built for a sports hall with no signal</h3>
+        <p>Every edit is saved on the phone first and synced when the connection returns. Nothing waits for a network, and nothing is lost when there isn't one.</p>
+      </div>
+      <div class="claim privacy">
+        <h3>No ads, no analytics, no tracking</h3>
+        <p>This app holds data about children. There is no advertising and no tracking of any kind, and a coach can delete their account and all of its data from inside the app.</p>
+      </div>
+    </div>
+    <div class="soon">
+      <b>Coming to Google Play.</b> Tactix is in closed testing now. It will be free to download, with Premium for coaches who need more.
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="links">
