@@ -97,10 +97,8 @@
   var PROJECT = 'coachmate-6f0fa';
   var KEY = 'AIzaSyAQ_FRi9bmv1X2Gfj9evgaJT_oTf-dGVsQ';
   var PKG = 'com.aouichi.tactix';
-  // Closed test: installing needs the tester group first. Swap for the store
-  // page (https://play.google.com/store/apps/details?id=…) after production.
-  var GROUP = 'https://groups.google.com/g/tactix-testers';
-  var OPTIN = 'https://play.google.com/apps/testing/' + PKG;
+  // The public store page (production since 16 Nov 2026).
+  var STORE = 'https://play.google.com/store/apps/details?id=' + PKG;
 
   var ar = (navigator.language || '').toLowerCase().indexOf('ar') === 0;
   var T = ar ? {
@@ -112,7 +110,7 @@
     min: 'د',
     missing: 'لا توجد تمارين بهذا الرمز. ربما الرابط ناقص، أو مرّ عليه أكثر من 90 يومًا.',
     getTitle: 'ليس لديك Tactix؟',
-    getText: 'Tactix في مرحلة الاختبار حاليًا. للانضمام:<ol><li>انضم إلى <a id="g1">مجموعة المختبرين</a> بحساب Google الخاص بك.</li><li>افتح <a id="g2">رابط الاختبار</a> واضغط «أصبح مختبِرًا»، ثم ثبّت التطبيق من Google Play.</li></ol>انتظر 5 إلى 10 دقائق إذا ظهر «التطبيق غير متاح»، ثم ارجع إلى هذه الصفحة.'
+    getText: 'حمّل Tactix مجانًا من <a id="g1">Google Play</a>، ثم ارجع إلى هذه الصفحة واضغط «فتح في Tactix» لتحصل على التمارين.'
   } : {
     loading: 'Loading…',
     one: '{from} sent you a drill', many: '{from} sent you {n} drills',
@@ -122,7 +120,7 @@
     min: 'min',
     missing: 'No drills found here. The link may be cut short, or older than 90 days.',
     getTitle: 'Don’t have Tactix?',
-    getText: 'Tactix is in testing right now. To join:<ol><li>Join the <a id="g1">tester group</a> with your Google account.</li><li>Open the <a id="g2">testing link</a>, tap “Become a tester”, then install the app from Google Play.</li></ol>If Play says “App not available”, wait 5 to 10 minutes and try again. Then come back to this page.'
+    getText: 'Get Tactix free on <a id="g1">Google Play</a>, then come back to this page and tap “Open in Tactix” to get the drills.'
   };
   if (ar) { document.documentElement.lang = 'ar'; document.documentElement.dir = 'rtl'; }
 
@@ -130,7 +128,7 @@
   $('loading').textContent = T.loading;
   $('getTitle').textContent = T.getTitle;
   $('getText').innerHTML = T.getText; // our own fixed text, no share data
-  $('g1').href = GROUP; $('g2').href = OPTIN;
+  $('g1').href = STORE;
 
   function fail() {
     $('loading').hidden = true;
@@ -171,10 +169,10 @@
       var open = $('open');
       open.textContent = T.open;
       // Android Chrome opens custom schemes through an intent URL; if the app
-      // is missing it falls back to the testing page instead of an error.
+      // is missing it falls back to the store page instead of an error.
       open.href = /android/i.test(navigator.userAgent)
         ? 'intent://' + path + '#Intent;scheme=crkapp;package=' + PKG +
-          ';S.browser_fallback_url=' + encodeURIComponent(OPTIN) + ';end'
+          ';S.browser_fallback_url=' + encodeURIComponent(STORE) + ';end'
         : 'crkapp://' + path;
 
       var list = $('drills');
